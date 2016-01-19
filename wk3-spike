@@ -1,0 +1,103 @@
+//
+//  ViewController.swift
+//  hello-mhealth
+//  An application that displays "hello" for certain max acceleration values, and "world" for all others.
+//  Created by @alainakafkes
+
+
+import UIKit
+import MapKit
+import CoreLocation
+import CoreMotion // to access CoreMotion framework
+
+class ViewController: UIViewController{
+    
+    // Max Variables
+    
+    var currentMaxAccelX: Double = 0.0
+    var currentMaxAccelY: Double = 0.0
+    
+    var movementManager = CMMotionManager()
+    // movementManager is how I access motion sensors (thx CoreMotion)
+    
+    // Given outlets for motion:
+    @IBOutlet var accX: UILabel!
+    @IBOutlet var accY: UILabel!
+    @IBOutlet var maxAccX: UILabel!
+    @IBOutlet var maxAccY: UILabel!
+
+    // For the hello world coloring component:
+    @IBOutlet var HelloLabel: UILabel!
+    @IBOutlet var WorldLabel: UILabel!
+    
+    
+    @IBAction func resetMaxValues(sender: AnyObject) {
+        currentMaxAccelX = 0
+        currentMaxAccelY = 0
+    }
+    
+    override func viewDidLoad() {
+        HelloLabel.textColor = UIColor.redColor()
+        WorldLabel.textColor = UIColor.redColor()
+        
+        
+        // RESET VALUES:
+        currentMaxAccelX = 0
+        currentMaxAccelY = 0
+        
+        // For setting properties of the motion manager (when to check motion):
+        movementManager.gyroUpdateInterval = 0.2
+        movementManager.accelerometerUpdateInterval = 0.2
+        
+        // For recording data:
+        movementManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!) { (accelerometerData: CMAccelerometerData?, NSError) -> Void in
+            
+            self.outputAccData(accelerometerData!.acceleration)
+            if(NSError != nil) {
+                print("\(NSError)")
+            }
+        }
+        
+        movementManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (gyroData: CMGyroData?, NSError) -> Void in
+            if (NSError != nil){
+                print("\(NSError)")
+            }
+            
+            
+        })
+        
+        
+        
+        
+    }
+    
+    func outputAccData(acceleration: CMAcceleration){
+        
+        accX?.text = "\(acceleration.x).2fg"
+        if fabs(acceleration.x) > fabs(currentMaxAccelX)
+        {
+            currentMaxAccelX = acceleration.x
+        }
+        
+        accY?.text = "\(acceleration.y).2fg"
+        if fabs(acceleration.y) > fabs(currentMaxAccelY)
+        {
+            currentMaxAccelY = acceleration.y
+        }
+        
+        if fabs(currentMaxAccelX) >= 3.0 {
+            HelloLabel.textColor = UIColor.blueColor()
+            WorldLabel.textColor = UIColor.clearColor()
+        }
+        
+        if fabs(currentMaxAccelX) < 3.0 {
+            HelloLabel.textColor = UIColor.clearColor()
+            WorldLabel.textColor = UIColor.blueColor()
+        }
+        
+        maxAccX?.text = "\(currentMaxAccelX).2f"
+        maxAccY?.text = "\(currentMaxAccelY).2f"
+        
+        
+    }
+}
