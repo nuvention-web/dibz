@@ -1,0 +1,17 @@
+# Alaina Kafkes
+# The Simplest Item Searching Interface Possible
+# 19 January 2016
+
+## Save each item into a list, thereby mimicking a database
+items = [line.rstrip('\n') for line in open('search-items.txt')]
+#print(items)
+
+search_item = input("What are you looking for?    ")
+found = search_item in items
+
+if found == True:
+	print("Your item has been found!")
+
+elif found == False:
+	print("Your item has not been found. Look out for a notification from Dibz when ")
+	print(search_item + " becomes available.")
