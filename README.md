@@ -1,9 +1,12 @@
-# VR
-NUVention Project Development 
-Team Members Emails:
-Haley De Boom: haleydeboom2017@u.northwestern.edu // hd@u.northwestern.edu
-Alaina Kafkes: alainakafkes2017@u.northwestern.edu
-Niki Patel: nikipatel@u.northwestern.edu
-Ligia Aguilhar: ligia.aguilhar@gmail.com // ligiacruz2016@u.northwestern.edu
-Kungyen Chang: kchang2017@kellogg.northwestern.edu
+# Dibz
+*Enhance your Free & For Sale experience*
 
+#### Business & Content Strategy Team
+Ligia Aguilhar: ligia.aguilhar@gmail.com  
+Kungyen Chang: kchang2017@kellogg.northwestern.edu  
+Youngwook Andrew Shin: youngwookshin2015@u.northwestern.edu  
+
+#### Development Team
+Alaina Kafkes: alainakafkes2017@u.northwestern.edu  
+Haley De Boom haleydeboom2017@u.northwestern.edu  
+Niki Patel: nikipatel@u.northwestern.edu  
