@@ -2,42 +2,33 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
     <!-- Parse -->
-  	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
     <title>Dibz Demo</title>
-
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 
 <body id="page-top">
-
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -50,7 +41,6 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">DIBZ</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -61,7 +51,7 @@
                         <a class="page-scroll" href="#about">Search</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Feed</a>
+                        <a class="page-scroll" href="#portfolio">Featured</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -72,18 +62,16 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
     <header>
         <div class="header-content" id="home">
             <div class="header-content-inner">
                 <h1>DIBZ</h1>
                 <hr>
                 <p>Welcome to Dibz Market! Buy and sell items within the Northwestern Community. </p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">GET STARTED</a>
             </div>
         </div>
     </header>
-
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
@@ -95,19 +83,218 @@
                         <div class="col-lg-8 col-lg-offset-2 text-center">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Search</button>
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">Search</button>
                                 </span>
-                            <input type="text" class="form-control" id="search_input" placeholder="I need a...">
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-8 -->
-                    </div><!-- /.row -->
-                   <!--  <a href="#" class="btn btn-default btn-xl">Get Started!</a> -->
+                                <input type="text" class="form-control" id="search_input" placeholder="I need a...">
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                        <!-- /.col-lg-8 -->
+                    </div>
+                    <!-- /.row -->
+                    <!--  <a href="#" class="btn btn-default btn-xl">Get Started!</a> -->
                 </div>
             </div>
         </div>
     </section>
-
-   <!-- <section id="services">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 style=color:white><span class="glyphicon glyphicon-tag"></span> Search Results</h3>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#cheap" data-toggle="tab">$ - $$$</a></li>
+                    <li><a href="#expensive" data-toggle="tab">$$$ - $ </a></li>
+                    <li><a href="#old" data-toggle="tab">Oldest</a></li>
+                    <li><a href="#new" data-toggle="tab">Newest</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="cheap">
+                        <div class="row text-center">
+                            <div class="col-sm-4">
+                                <div class="thumbnail">
+                                    <img src="img/twinbed3.jpg" class="img-responsive" alt="">
+                                    <p><strong>Literally just want to get rid of it.</strong></p>
+                                    <p>$0</p>
+                                    <p>Posted 1 week ago</p>
+                                    <button class="btn">Call Dibz!</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumbnail">
+                                    <img src="img/twinbed2.jpg" class="img-responsive" alt="">
+                                    <p><strong>Light Chestnut - CHEAP!!!</strong></p>
+                                    <p>$20</p>
+                                    <p>Posted 1 day ago</p>
+                                    <button class="btn">Call Dibz!</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumbnail">
+                                    <img src="img/twinbed1.jpg" class="img-responsive" alt="">
+                                    <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
+                                    <p>$100</p>
+                                    <p>Posted 4 days ago</p>
+                                    <button class="btn">Call Dibz!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="expensive">
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
+                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
+                                <p>$100</p>
+                                <p>Posted 4 days ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
+                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
+                                <p>$20</p>
+                                <p>Posted 1 day ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
+                                <p><strong>Literally just want to get rid of it.</strong></p>
+                                <p>$0</p>
+                                <p>Posted 1 week ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="old">
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
+                                <p><strong>Literally just want to get rid of it.</strong></p>
+                                <p>$0</p>
+                                <p>Posted 1 week ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
+                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
+                                <p>$100</p>
+                                <p>Posted 4 days ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
+                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
+                                <p>$20</p>
+                                <p>Posted 1 day ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="new">
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
+                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
+                                <p>$20</p>
+                                <p>Posted 1 day ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
+                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
+                                <p>$100</p>
+                                <p>Posted 4 days ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
+                                <p><strong>Literally just want to get rid of it.</strong></p>
+                                <p>$0</p>
+                                <p>Posted 1 week ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+    <!--<div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3><span class="glyphicon glyphicon-tag"></span> Search Results</h3> -->
+    <!--<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">$ -> $$$$</a></li>
+  <li><a data-toggle="tab" href="#menu1">$$$$ -> $</a></li>
+  <li><a data-toggle="tab" href="#menu2">Newest</a></li>
+  <li><a data-toggle="tab" href="#menu3">Oldest</a></li>
+</ul>-->
+    <!--</div>
+                <div class="modal-body">
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
+                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
+                                <p>$100</p>
+                                <p>Posted 4 days ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
+                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
+                                <p>$20</p>
+                                <p>Posted 1 day ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="thumbnail">
+                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
+                                <p><strong>Literally just want to get rid of it.</strong></p>
+                                <p>$0</p>
+                                <p>Posted 1 week ago</p>
+                                <button class="btn">Call Dibz!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -149,7 +336,6 @@
             </div>
         </div>
     </section> -->
-
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter">
@@ -162,7 +348,7 @@
                                     Animal
                                 </div>
                                 <div class="project-name">
-                                    Chinchilla 
+                                    Chinchilla
                                 </div>
                             </div>
                         </div>
@@ -246,66 +432,62 @@
             </div>
         </div>
     </section>
-
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>
+                <h2>Dibz will soon be available for mobile!</h2>
+                <a href="#" class="btn btn-default btn-xl wow tada">Get Notified</a>
             </div>
         </div>
     </aside>
-
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>Let us know if you have any issues with the site!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>123-456-6789</p>
+                    <p>800-867-5309</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:your-email@your-domain.com">develop@dibzmarket.com</a></p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/jquery.fittext.js"></script>
     <script src="js/wow.min.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
-    
     <script type="text/javascript">
-	Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")  
-	
-	var FFSData = Parse.Object.extend("FFSData");
-	var ffs = new FFSData;
-	var query = new Parse.Query(FFSData);
-	query.get("y4H8R1Nrg2", {
-		success: function(ffs) {
-			alert("item found");
-		},
-		error: function(object, error) {
-			alert("item not found");
-		}
-	});
-  </script>
+    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+    var test = document.getElementById("search_input").value;
 
+    function getSearchTerm() {
+        var test = document.getElementById("search_input").value;
+        alert("Looking for " + test);
+    }
+
+    var FFSData = Parse.Object.extend("FFSData");
+    var ffs = new FFSData;
+    var query = new Parse.Query(FFSData);
+    //query.equalTo("objectCategory", "tech");
+    //query.find({
+    //   success: function(results) {
+    //       alert("Successfully retrieved " + results.length + " values.");
+    //  }
+    });
+    </script>
 </body>
 
 </html>
