@@ -83,7 +83,7 @@
                         <div class="col-lg-8 col-lg-offset-2 text-center">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">Search</button>
+                                    <button class="btn btn-default" id = "search" type="button" data-toggle="modal" data-target="#myModal">Search</button>
                                 </span>
                                 <input type="text" class="form-control" id="search_input" placeholder="I need a...">
                             </div>
@@ -97,9 +97,13 @@
             </div>
         </div>
     </section>
+    
+    
+    
+    
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog" style="display:none;">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h3 style=color:white><span class="glyphicon glyphicon-tag"></span> Search Results</h3>
@@ -115,16 +119,16 @@
                     <div class="tab-pane active" id="cheap">
                         <div class="row text-center">
                             <div class="col-sm-4">
-                                <div class="thumbnail">
+                                <div id = "thumbnail" class="thumbnail">
                                     <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                    <p><strong>Literally just want to get rid of it.</strong></p>
-                                    <p>$0</p>
+                                    <p id = "item-title"><strong>Alaina.</strong></p>
+                                    <p id = "item-price">$0</p>
                                     <p>Posted 1 week ago</p>
                                     <button class="btn">Call Dibz!</button>
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="thumbnail">
+                                <div id = "thumbnail" class="thumbnail">
                                     <img src="img/twinbed2.jpg" class="img-responsive" alt="">
                                     <p><strong>Light Chestnut - CHEAP!!!</strong></p>
                                     <p>$20</p>
@@ -133,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="thumbnail">
+                                <div id = "thumbnail" class="thumbnail">
                                     <img src="img/twinbed1.jpg" class="img-responsive" alt="">
                                     <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
                                     <p>$100</p>
@@ -335,8 +339,23 @@
                 </div>
             </div>
         </div>
-    </section> -->
-    <section class="no-padding" id="portfolio">
+</section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="no-padding" style="display:none;" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter">
                 <div class="col-lg-4 col-sm-6">
@@ -344,94 +363,31 @@
                         <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
+                                <div class="project-category text-faded" id = "item-category">
                                     Animal
                                 </div>
-                                <div class="project-name">
+                                <div class="project-name" id = "item-name">
                                     Chinchilla
                                 </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/2.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Furniture
-                                </div>
-                                <div class="project-name">
-                                    Drying Rack
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/3.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Furniture
-                                </div>
-                                <div class="project-name">
-                                    Futon
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/4.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Books
-                                </div>
-                                <div class="project-name">
-                                    Assorted Textbooks
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/5.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Electronics
-                                </div>
-                                <div class="project-name">
-                                    TI-84 Silver Plus Edition
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/6.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Clothing
-                                </div>
-                                <div class="project-name">
-                                    Black Heels
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                    </a>    
                 </div>
             </div>
         </div>
     </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -469,25 +425,46 @@
     <script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    
     <script type="text/javascript">
-    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-    var test = document.getElementById("search_input").value;
+    	Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+    	var test = document.getElementById("search_input").value;
+    	
+    	
+    	function getSearchTerm() {
+        	var test = document.getElementById("search_input").value;
+        	alert("Looking for " + test);
+    	}
 
-    function getSearchTerm() {
-        var test = document.getElementById("search_input").value;
-        alert("Looking for " + test);
-    }
-
-    var FFSData = Parse.Object.extend("FFSData");
-    var ffs = new FFSData;
-    var query = new Parse.Query(FFSData);
-    //query.equalTo("objectCategory", "tech");
-    //query.find({
-    //   success: function(results) {
-    //       alert("Successfully retrieved " + results.length + " values.");
-    //  }
+    	var FFSData = Parse.Object.extend("FFSData");
+    	var ffs = new FFSData;
+    	var query = new Parse.Query(FFSData);
+    	
+    	// FUNCTIONAL SEARCH GIVES ALERT YAY
+    	$('#search').click(function() {
+    		var userInput = $('#search_input').val();
+    		
+    		$('#portfolio').prop("disabled", false);
+    		
+			query.contains("objectCategory", userInput);
+    		query.find({
+      			success: function(results) {
+          		alert("Successfully retrieved " + results.length + " values.");
+          		
+          		// Boxed results appear IF AND ONLY IF there are search matches
+          		if (results.length != 0) {
+          			// get stuff from Parse and change text somehow?
+          		
+    				document.getElementById("portfolio").style.display = "";
+    			}
+     		}
+     		
+    	});
+    	
     });
     </script>
+    
+    
 </body>
 
 </html>
