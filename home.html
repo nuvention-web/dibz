@@ -45,6 +45,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a class="user-items" href="#useritems">My Items</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#home">Home</a>
                     </li>
                     <li>
@@ -67,327 +70,65 @@
             <div class="header-content-inner">
                 <h1>DIBZ</h1>
                 <hr>
-                <p>Welcome to Dibz Market! Buy and sell items within the Northwestern Community. </p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">GET STARTED</a>
+                <p>Welcome to Dibz! Buy and sell items within the Northwestern community. </p>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                                    <button class="btn btn-default" id = "search" type="button" data-toggle="modal" data-target="#myModal">Search</button>
+                                </span>
+                    <input type="text" class="form-control" id="search_input" placeholder="I need a...">
+                </div>
             </div>
         </div>
     </header>
-    <section class="bg-primary" id="about">
+    <section class="bg-warning" id="useritems">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
-                    <hr class="light">
-                    <p class="text-faded"></p>
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 text-center">
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" id = "search" type="button" data-toggle="modal" data-target="#myModal">Search</button>
-                                </span>
-                                <input type="text" class="form-control" id="search_input" placeholder="I need a...">
+                <div class="col-lg-8 col-lg-offset-2 text-left">
+                    <h1 class="section-heading">My Items</h1>
+                    <p> ________________________________</p>
+                    <button type="button" data-toggle="modal" data-target="#newItem" class="btn btn-primary btn-lg">New Item </button>
+                    <div class="modal" id="newItem" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">New Item</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="action_page.php">
+                                        <label for="title">Title</label>
+                                        <input type="text" id="title" name="itemtitle">
+                                        <label for="shortdescription">Short Description</label>
+                                        <input type="text" id="photo" name="itemphoto">
+                                        <label for="price">Price</label>
+                                        <input type="text" id="price" name="itemprice">
+                                        <label for="duration">Duration</label>
+                                        <input type="text" id="duration" name="itemduration">
+                                        <style>
+                                        input[type=text],
+                                        select {
+                                            width: 100%;
+                                            padding: 12px 20px;
+                                            margin: 8px 0;
+                                            display: inline-block;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                            box-sizing: border-box;
+                                        }
+                                        </style>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="postButton" type="button" class="btn btn-default" data-dismiss="modal">Post</button>
+                                </div>
                             </div>
-                            <!-- /input-group -->
                         </div>
-                        <!-- /.col-lg-8 -->
                     </div>
-                    <!-- /.row -->
-                    <!--  <a href="#" class="btn btn-default btn-xl">Get Started!</a> -->
                 </div>
             </div>
         </div>
+
     </section>
-    
-    
-    
-    
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog" style="display:none;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 style=color:white><span class="glyphicon glyphicon-tag"></span> Search Results</h3>
-            </div>
-            <div class="modal-body">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#cheap" data-toggle="tab">$ - $$$</a></li>
-                    <li><a href="#expensive" data-toggle="tab">$$$ - $ </a></li>
-                    <li><a href="#old" data-toggle="tab">Oldest</a></li>
-                    <li><a href="#new" data-toggle="tab">Newest</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="cheap">
-                        <div class="row text-center">
-                            <div class="col-sm-4">
-                                <div id = "thumbnail" class="thumbnail">
-                                    <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                    <p id = "item-title"><strong>Alaina.</strong></p>
-                                    <p id = "item-price">$0</p>
-                                    <p>Posted 1 week ago</p>
-                                    <button class="btn">Call Dibz!</button>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div id = "thumbnail" class="thumbnail">
-                                    <img src="img/twinbed2.jpg" class="img-responsive" alt="">
-                                    <p><strong>Light Chestnut - CHEAP!!!</strong></p>
-                                    <p>$20</p>
-                                    <p>Posted 1 day ago</p>
-                                    <button class="btn">Call Dibz!</button>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div id = "thumbnail" class="thumbnail">
-                                    <img src="img/twinbed1.jpg" class="img-responsive" alt="">
-                                    <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
-                                    <p>$100</p>
-                                    <p>Posted 4 days ago</p>
-                                    <button class="btn">Call Dibz!</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="expensive">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
-                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
-                                <p>$100</p>
-                                <p>Posted 4 days ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
-                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
-                                <p>$20</p>
-                                <p>Posted 1 day ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                <p><strong>Literally just want to get rid of it.</strong></p>
-                                <p>$0</p>
-                                <p>Posted 1 week ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="old">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                <p><strong>Literally just want to get rid of it.</strong></p>
-                                <p>$0</p>
-                                <p>Posted 1 week ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
-                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
-                                <p>$100</p>
-                                <p>Posted 4 days ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
-                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
-                                <p>$20</p>
-                                <p>Posted 1 day ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="new">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
-                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
-                                <p>$20</p>
-                                <p>Posted 1 day ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
-                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
-                                <p>$100</p>
-                                <p>Posted 4 days ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                <p><strong>Literally just want to get rid of it.</strong></p>
-                                <p>$0</p>
-                                <p>Posted 1 week ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
-                    <span class="glyphicon glyphicon-remove"></span> Cancel
-                </button>
-            </div>
-        </div>
-    </div>
-    </section>
-    <!--<div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-    <!--<div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3><span class="glyphicon glyphicon-tag"></span> Search Results</h3> -->
-    <!--<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">$ -> $$$$</a></li>
-  <li><a data-toggle="tab" href="#menu1">$$$$ -> $</a></li>
-  <li><a data-toggle="tab" href="#menu2">Newest</a></li>
-  <li><a data-toggle="tab" href="#menu3">Oldest</a></li>
-</ul>-->
-    <!--</div>
-                <div class="modal-body">
-                    <div class="row text-center">
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed1.jpg" class="img-responsive" alt="">
-                                <p><strong>Dark Oak Bed - it's Crate & Barrel</strong></p>
-                                <p>$100</p>
-                                <p>Posted 4 days ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed2.jpg" class="img-responsive" alt="">
-                                <p><strong>Light Chestnut - CHEAP!!!</strong></p>
-                                <p>$20</p>
-                                <p>Posted 1 day ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="thumbnail">
-                                <img src="img/twinbed3.jpg" class="img-responsive" alt="">
-                                <p><strong>Literally just want to get rid of it.</strong></p>
-                                <p>$0</p>
-                                <p>Posted 1 week ago</p>
-                                <button class="btn">Call Dibz!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    
-                    <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> Cancel
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section class="no-padding" style="display:none;" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#" class="portfolio-box">
-                        <img src="img/portfolio/1.jpg" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded" id = "item-category">
-                                    Animal
-                                </div>
-                                <div class="project-name" id = "item-name">
-                                    Chinchilla
-                                </div>
-                            </div>
-                        </div>
-                    </a>    
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
@@ -425,46 +166,143 @@
     <script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
-    
-    <script type="text/javascript">
-    	Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-    	var test = document.getElementById("search_input").value;
-    	
-    	
-    	function getSearchTerm() {
-        	var test = document.getElementById("search_input").value;
-        	alert("Looking for " + test);
-    	}
+    <script>
+    function collectData() {
 
-    	var FFSData = Parse.Object.extend("FFSData");
-    	var ffs = new FFSData;
-    	var query = new Parse.Query(FFSData);
-    	
-    	// FUNCTIONAL SEARCH GIVES ALERT YAY
-    	$('#search').click(function() {
-    		var userInput = $('#search_input').val();
-    		
-    		$('#portfolio').prop("disabled", false);
-    		
-			query.contains("objectCategory", userInput);
-    		query.find({
-      			success: function(results) {
-          		alert("Successfully retrieved " + results.length + " values.");
-          		
-          		// Boxed results appear IF AND ONLY IF there are search matches
-          		if (results.length != 0) {
-          			// get stuff from Parse and change text somehow?
-          		
-    				document.getElementById("portfolio").style.display = "";
-    			}
-     		}
-     		
-    	});
-    	
+
+    }
+    document.getElementById("postButton").onclick = function() {
+        collectData()
+    };
+    </script>
+    <script type="text/javascript">
+    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+    var test = document.getElementById("search_input").value;
+
+
+    function getSearchTerm() {
+        var test = document.getElementById("search_input").value;
+        alert("Looking for " + test);
+    }
+
+    var FFSData = Parse.Object.extend("FFSData");
+    var ffs = new FFSData;
+    var query = new Parse.Query(FFSData);
+
+    // FUNCTIONAL SEARCH GIVES ALERT YAY
+    $('#search').click(function() {
+        var userInput = $('#search_input').val();
+
+        $('#portfolio').prop("disabled", false);
+
+        query.contains("objectCategory", userInput);
+        query.find({
+            success: function(results) {
+                alert("Successfully retrieved " + results.length + " values.");
+
+                // Boxed results appear IF AND ONLY IF there are search matches
+                if (results.length != 0) {
+                    // get stuff from Parse and change text somehow?
+
+                    document.getElementById("portfolio").style.display = "";
+                }
+            }
+
+        });
+
     });
     </script>
-    
-    
+    <script>
+    // We must have a domain for this to work. 
+    //This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        // The response object is returned with a status field that lets the
+        // app know the current login status of the person.
+        // Full docs on the response object can be found in the documentation
+        // for FB.getLoginStatus().
+        if (response.status === 'connected') {
+            // Logged into your app and Facebook.
+            testAPI();
+        } else if (response.status === 'not_authorized') {
+            // The person is logged into Facebook, but not your app.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into this app.';
+        } else {
+            // The person is not logged into Facebook, so we're not sure if
+            // they are logged into this app or not.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into Facebook.';
+        }
+    }
+
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1523974224599105',
+            cookie: true, // enable cookies to allow the server to access 
+            // the session
+            xfbml: true, // parse social plugins on this page
+            version: 'v2.5' // use graph api version 2.5
+        });
+
+        // Now that we've initialized the JavaScript SDK, we call 
+        // FB.getLoginStatus().  This function gets the state of the
+        // person visiting this page and can return one of three states to
+        // the callback you provide.  They can be:
+        //
+        // 1. Logged into your app ('connected')
+        // 2. Logged into Facebook, but not your app ('not_authorized')
+        // 3. Not logged into Facebook and can't tell if they are logged into
+        //    your app or not.
+        //
+        // These three cases are handled in the callback function.
+
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Here we run a very simple test of the Graph API after login is
+    // successful.  See statusChangeCallback() for when this call is made.
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+            console.log('Successful login for: ' + response.name);
+            document.getElementById('status').innerHTML =
+                'Thanks for logging in, ' + response.name + '!';
+        });
+    }
+    </script>
+    <!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <div id="status">
+    </div>
 </body>
 
 </html>
