@@ -86,6 +86,16 @@
                 <div class="col-lg-8 col-lg-offset-2 text-left">
                     <h1 class="section-heading">My Items</h1>
                     <p> ________________________________</p>
+                    <p id = "item1"></p>
+                    <p id = "item2"></p>
+                    <p id = "item3"></p>
+                    <p id = "item4"></p>
+                    <p id = "item5"></p>
+                    <p id = "item6"></p>
+                    <p id = "item7"></p>
+                    <p id = "item8"></p>
+                    <p id = "item9"></p>
+                    <p id = "item10"></p>
                     <button type="button" data-toggle="modal" data-target="#newItem" class="btn btn-primary btn-lg">New Item </button>
                     <div class="modal" id="newItem" role="dialog">
                         <div class="modal-dialog">
@@ -166,6 +176,77 @@
     <script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+    		var linenum = 1;
+    		
+  			$('#postButton').click(function() {
+  				var title = document.getElementById("title").value;
+  				var description = document.getElementById("photo").value;
+  				var price = document.getElementById("price").value;
+  				var duration = document.getElementById("duration").value;
+  				
+  				document.getElementById("title").value = "";
+  				document.getElementById("photo").value = "";
+  				document.getElementById("price").value = "";
+  				document.getElementById("duration").value = "";
+
+  				if (linenum == 1) {
+  					document.getElementById("item1").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 2;
+  				}
+  				
+  				else if (linenum == 2) {
+  					document.getElementById("item2").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 3;
+  				}
+  				
+  				else if (linenum == 3) {
+  					document.getElementById("item3").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 4;
+  				}
+				
+				else if (linenum == 4) {
+  					document.getElementById("item4").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 5;
+  				}
+  				
+  				else if (linenum == 5) {
+  					document.getElementById("item5").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 6;
+  				}
+  				
+  				else if (linenum == 6) {
+  					document.getElementById("item6").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 7;
+  				}
+  				
+  				else if (linenum == 7) {
+  					document.getElementById("item7").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 8;
+  				}
+  				
+  				else if (linenum == 8) {
+  					document.getElementById("item8").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 9;
+  				}
+  				
+  				else if (linenum == 9) {
+  					document.getElementById("item9").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 10;
+  				}
+  				
+  				else {
+  					document.getElementById("item10").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
+  					linenum = 1;
+  				}
+    		});
+    	});
+    </script>
+    
+    
+<!-- 
     <script>
     function collectData() {
 
@@ -175,6 +256,8 @@
         collectData()
     };
     </script>
+ -->
+    
     <script type="text/javascript">
     Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
     var test = document.getElementById("search_input").value;
