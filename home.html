@@ -2,390 +2,96 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Parse -->
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-    <title>Dibz Demo</title>
+
+    <title>Dibz Home</title>
+
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <!-- Custom Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link href="css/bootstrap.min-about.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
-<body id="page-top">
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">DIBZ</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="user-items" href="#useritems">My Items</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#about">Search</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Featured</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <header>
-        <div class="header-content" id="home">
-            <div class="header-content-inner">
-                <h1>DIBZ</h1>
-                <hr>
-                <p>Welcome to Dibz! Buy and sell items within the Northwestern community. </p>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                                    <button class="btn btn-default" id = "search" type="button" data-toggle="modal" data-target="#myModal">Search</button>
-                                </span>
-                    <input type="text" class="form-control" id="search_input" placeholder="I need a...">
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="bg-warning" id="useritems">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-left">
-                    <h1 class="section-heading">My Items</h1>
-                    <p> ________________________________</p>
-                    <p id = "item1"></p>
-                    <p id = "item2"></p>
-                    <p id = "item3"></p>
-                    <p id = "item4"></p>
-                    <p id = "item5"></p>
-                    <p id = "item6"></p>
-                    <p id = "item7"></p>
-                    <p id = "item8"></p>
-                    <p id = "item9"></p>
-                    <p id = "item10"></p>
-                    <button type="button" data-toggle="modal" data-target="#newItem" class="btn btn-primary btn-lg">New Item </button>
-                    <div class="modal" id="newItem" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">New Item</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="action_page.php">
-                                        <label for="title">Title</label>
-                                        <input type="text" id="title" name="itemtitle">
-                                        <label for="shortdescription">Short Description</label>
-                                        <input type="text" id="photo" name="itemphoto">
-                                        <label for="price">Price</label>
-                                        <input type="text" id="price" name="itemprice">
-                                        <label for="duration">Duration</label>
-                                        <input type="text" id="duration" name="itemduration">
-                                        <style>
-                                        input[type=text],
-                                        select {
-                                            width: 100%;
-                                            padding: 12px 20px;
-                                            margin: 8px 0;
-                                            display: inline-block;
-                                            border: 1px solid #ccc;
-                                            border-radius: 4px;
-                                            box-sizing: border-box;
-                                        }
-                                        </style>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button id="postButton" type="button" class="btn btn-default" data-dismiss="modal">Post</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-    </section>
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>Dibz will soon be available for mobile!</h2>
-                <a href="#" class="btn btn-default btn-xl wow tada">Get Notified</a>
-            </div>
-        </div>
-    </aside>
-    <section id="contact">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Let us know if you have any issues with the site!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>800-867-5309</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">develop@dibzmarket.com</a></p>
+                <div class="col-lg-12">
+                    <h1 style = "text-align: center"><img src="img/dibz-logo.png" alt="Dibz" style="width:300px;height:300px;"></h1>
+                <h3 style = "text-align: center">The efficient way to buy & sell locally</h3>
+                <br>
+
+                
+                <table align="center" style="margin: 0px auto;">
+                    <tr>
+                    <td>
+                    <section class="loginform cf" style = "text-align:right">  
+						<form name="login" action="index_submit" method="get" accept-charset="utf-8">  
+    						<ul style="list-style-type:none">  
+       							<li><label for="usermail">Email</label>  
+        						<input type="email" name="usermail" placeholder="yourname@email.com" required></li>  
+        						<li><label for="password">Password</label>  
+        						<input type="password" name="password" placeholder="password" required></li> 
+    						</ul>  
+						</form> 
+					<a class="btn btn-default page-scroll" href="choice.html" >Log-In</a> 
+				</section>
+                
+                </td>
+                <td>
+                <section class="loginform cf" style = "text-align:right"> 
+                		<form name="login" action="index_submit" method="get" accept-charset="utf-8">  
+    						<ul style="list-style-type:none">
+    							<li><label for="name">Name</label>  
+        						<input type="name" name="name" placeholder="first & last" required></li> 
+       							<li><label for="usermail">Email</label>  
+        						<input type="email" name="usermail" placeholder="yourname@email.com" required></li>  
+        						<li><label for="password">Password</label>  
+        						<input type="password" name="password" placeholder="password" required></li> 
+    						</ul>  
+						</form>
+						<a class="btn btn-default page-scroll" href="choice.html">Sign Up</a>
+					</section>
+                
+                </td>
+                </tr>
+                </table>
+                <br><br><br>
                 </div>
             </div>
         </div>
     </section>
+    
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
+
+    <!-- Scrolling Nav JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/creative.js"></script>
-    
-    <script>
-    $(document).ready(function() {
-    		var linenum = 1;
-    		
-  			$('#postButton').click(function() {
-  				var title = document.getElementById("title").value;
-  				var description = document.getElementById("photo").value;
-  				var price = document.getElementById("price").value;
-  				var duration = document.getElementById("duration").value;
-  				
-  				document.getElementById("title").value = "";
-  				document.getElementById("photo").value = "";
-  				document.getElementById("price").value = "";
-  				document.getElementById("duration").value = "";
+    <script src="js/scrolling-nav.js"></script>
 
-  				if (linenum == 1) {
-  					document.getElementById("item1").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 2;
-  				}
-  				
-  				else if (linenum == 2) {
-  					document.getElementById("item2").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 3;
-  				}
-  				
-  				else if (linenum == 3) {
-  					document.getElementById("item3").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 4;
-  				}
-				
-				else if (linenum == 4) {
-  					document.getElementById("item4").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 5;
-  				}
-  				
-  				else if (linenum == 5) {
-  					document.getElementById("item5").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 6;
-  				}
-  				
-  				else if (linenum == 6) {
-  					document.getElementById("item6").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 7;
-  				}
-  				
-  				else if (linenum == 7) {
-  					document.getElementById("item7").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 8;
-  				}
-  				
-  				else if (linenum == 8) {
-  					document.getElementById("item8").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 9;
-  				}
-  				
-  				else if (linenum == 9) {
-  					document.getElementById("item9").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 10;
-  				}
-  				
-  				else {
-  					document.getElementById("item10").innerHTML = title + "<br>" + description + "<br>" + price + "<br>" + duration + "<br>" + " ________________________________" + "<br>";
-  					linenum = 1;
-  				}
-    		});
-    	});
-    </script>
-    
-    
-<!-- 
-    <script>
-    function collectData() {
-
-
-    }
-    document.getElementById("postButton").onclick = function() {
-        collectData()
-    };
-    </script>
- -->
-    
-    <script type="text/javascript">
-    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-    var test = document.getElementById("search_input").value;
-
-
-    function getSearchTerm() {
-        var test = document.getElementById("search_input").value;
-        alert("Looking for " + test);
-    }
-
-    var FFSData = Parse.Object.extend("FFSData");
-    var ffs = new FFSData;
-    var query = new Parse.Query(FFSData);
-
-    // FUNCTIONAL SEARCH GIVES ALERT YAY
-    $('#search').click(function() {
-        var userInput = $('#search_input').val();
-
-        $('#portfolio').prop("disabled", false);
-
-        query.contains("objectCategory", userInput);
-        query.find({
-            success: function(results) {
-                alert("Successfully retrieved " + results.length + " values.");
-
-                // Boxed results appear IF AND ONLY IF there are search matches
-                if (results.length != 0) {
-                    // get stuff from Parse and change text somehow?
-
-                    document.getElementById("portfolio").style.display = "";
-                }
-            }
-
-        });
-
-    });
-    </script>
-    <script>
-    // We must have a domain for this to work. 
-    //This is called with the results from from FB.getLoginStatus().
-    function statusChangeCallback(response) {
-        console.log('statusChangeCallback');
-        console.log(response);
-        // The response object is returned with a status field that lets the
-        // app know the current login status of the person.
-        // Full docs on the response object can be found in the documentation
-        // for FB.getLoginStatus().
-        if (response.status === 'connected') {
-            // Logged into your app and Facebook.
-            testAPI();
-        } else if (response.status === 'not_authorized') {
-            // The person is logged into Facebook, but not your app.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this app.';
-        } else {
-            // The person is not logged into Facebook, so we're not sure if
-            // they are logged into this app or not.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into Facebook.';
-        }
-    }
-
-    // This function is called when someone finishes with the Login
-    // Button.  See the onlogin handler attached to it in the sample
-    // code below.
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-    }
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId: '1523974224599105',
-            cookie: true, // enable cookies to allow the server to access 
-            // the session
-            xfbml: true, // parse social plugins on this page
-            version: 'v2.5' // use graph api version 2.5
-        });
-
-        // Now that we've initialized the JavaScript SDK, we call 
-        // FB.getLoginStatus().  This function gets the state of the
-        // person visiting this page and can return one of three states to
-        // the callback you provide.  They can be:
-        //
-        // 1. Logged into your app ('connected')
-        // 2. Logged into Facebook, but not your app ('not_authorized')
-        // 3. Not logged into Facebook and can't tell if they are logged into
-        //    your app or not.
-        //
-        // These three cases are handled in the callback function.
-
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-
-    };
-
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    // Here we run a very simple test of the Graph API after login is
-    // successful.  See statusChangeCallback() for when this call is made.
-    function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
-        });
-    }
-    </script>
-    <!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
-    <div id="status">
-    </div>
 </body>
 
 </html>
