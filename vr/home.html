@@ -64,6 +64,7 @@
             console.log('Successful login for: ' + response.name);
             document.getElementById('status').innerHTML =
                 'Thanks for logging in, ' + response.name + '!';
+                $(".btn btn-default page-scroll").show();
         });
     }
     </script>
@@ -75,45 +76,6 @@
     <br>
     
     <a class="btn btn-default page-scroll" href="choice.html">Get Started!</a>
-    
-  <!-- <table align="center" style="margin: 0px auto;">
-                    <tr>
-                    <td>
-                    <section class="loginform cf" style = "text-align:right">  
-						<form name="login" action="index_submit" method="get" accept-charset="utf-8">  
-    						<ul style="list-style-type:none">  
-       							<li><label for="usermail">Email</label>  
-        						<input type="email" name="usermail" placeholder="yourname@email.com" required></li>  
-        						<li><label for="password">Password</label>  
-        						<input type="password" name="password" placeholder="password" required></li> 
-    						</ul>  
-						</form> 
-					<a class="btn btn-default page-scroll" href="choice.html" >Log-In</a> 
-				</section>
-                
-                </td>
-                <td>
-                <section class="loginform cf" style = "text-align:right"> 
-                		<form name="login" action="index_submit" method="get" accept-charset="utf-8">  
-    						<ul style="list-style-type:none">
-    							<li><label for="name">Name</label>  
-        						<input type="name" name="name" placeholder="first & last" required></li> 
-       							<li><label for="usermail">Email</label>  
-        						<input type="email" name="usermail" placeholder="yourname@email.com" required></li>  
-        						<li><label for="password">Password</label>  
-        						<input type="password" name="password" placeholder="password" required></li> 
-    						</ul>  
-						</form>
-						<a class="btn btn-default page-scroll" href="choice.html">Sign Up</a>
-					</section>
-                
-                </td>
-                </tr>
-                </table>
-                <br><br><br>
-                </div>
-            </div>
-        </div> -->
     </section>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
