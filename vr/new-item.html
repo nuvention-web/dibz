@@ -59,24 +59,31 @@
                     <p>Price </p>
                     <input type="text" id="itemprice" name="itemprice">
                     <p></p>
-                    <p>Duration of Listing </p>
+                    <p>Sell by: </p>
                     <input type="text" id="itemduration" name="itemduration">
                     <p></p>
                 </form>
-                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form >
+                    <!-- if you put the commented-out code below into the form tag above you can call a server-side code thing to actually put the photo in backend -->
+                    <!-- action="upload.php" method="post" enctype="multipart/form-data" -->
                     Select image to upload:
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <br>
                     <img src="img/simplecamera.png" height="200" width="275">
                     <br>
                     <br>
-                    <input type="submit" value="Upload Image" name="submit">
+                    <input type="submit" id="submitbutton" value="Upload Image" name="submit">
                 </form>
-
-                <input type="button" value="Create New Item!" onclick="createItem()">
+                <input type="button" id="itembutton" value="Create New Item!" onclick="createItem()">
                 <script>
-
-                 </script>
+                function createItem() {
+                    localStorage.setItem("title", document.getElementById("itemtitle").innerHTML);
+                    localStorage.setItem("description", document.getElementById("itemdescription").innerHTML);
+                    localStorage.setItem("price", document.getElementById("itemprice").innerHTML);
+                    localStorage.setItem("duration", document.getElementById("itemduration").innerHTML);
+                    window.location.assign("myitems.html");
+                }
+                </script>
                 <style>
                 form {
                     text-align: left;
@@ -112,19 +119,27 @@
                     margin: 8px;
                     border: 1px solid gray;
                     border-radius: 2px;
+                    outline: none;
                 }
                 
                 input[type=button] {
                     width: 100%;
                     text-align: center;
-                    background-color:#d35c12;
+                    background-color: #d35c12;
                     color: white;
                     padding: 12px 20px;
-                    margin: 8px ;
+                    margin: 8px;
                     border: none;
                     border-radius: 4px;
                     cursor: pointer;
                     outline: none;
+                }
+                #submitbutton:hover{
+                    background-color: #a9a9a9;
+
+                }
+                 #itembutton:hover {
+                    background-color: #C64E00;
                 }
                 </style>
             </div>
@@ -134,6 +149,10 @@
         </div>
         </div>
     </section>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
 </body>
 
 </html>
