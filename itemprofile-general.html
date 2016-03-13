@@ -30,9 +30,23 @@
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload = "pullCorrect()">
+	            <script>
+                	function whichDib() {
+						$('.itembutton').click(function() {
+    						//alert(this.id);
+    						localStorage.setItem("dibSelected", this.id);
+    						document.getElementById(this.id).href="confirm-seller.html";
+						});
+					}
+				</script>
+	            	
 	            	
 	            	<script type = "text/javascript">
 					function pullCorrect() {
+						// PULL CORRECT ITEM
+						//
+						//
+						
 						//alert("hello");
 						
 						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
@@ -81,6 +95,49 @@
 							}
 						});
 						
+						// PULL CORRECT DIBZ
+						//
+						//
+												
+						//alert("on to round 2");
+																	
+						var DibzBuyer = Parse.Object.extend("DibzBuyer");
+						query = new Parse.Query(DibzBuyer);
+						
+						// pulling from local storage
+						// var itemToQuery = localStorage.title;
+						
+						// set constraints on query
+						query.startsWith("sellerItemTitle", itemToQuery);
+						query.limit = 9;
+						
+						// submit query
+						query.find({
+							success: function(results) {
+								//alert("successfully retrieved " + results.length + " hits!");
+								
+								for (var i = 0; i < results.length; i++) {
+      								//var node = document.getElementById(i.toString());
+      								var divOfInterestNum = i + 2; // can't interfere with div id = 1 above
+      								var divOfInterestStr = "#" + divOfInterestNum.toString();
+      								
+      								var object = results[i];
+      								var name = object.get("buyerName");
+      								var price = object.get("buyerPrice");
+      								var contact = object.get("buyerContact");
+      								var comment = object.get("buyerComment");
+									
+									$(divOfInterestStr).html("<td style = 'text-align:left;padding-right:50px'><h3><b>Name:</b> " + name + "</h3>" + "<h5><b>Price Offered:</b> " + "$" + price + "</h5>" + "<h5><b>Contact:</b> " + contact + "</h5>" + "<h5><b>Comment:</b> " + comment + "</h5></td><td><a class='btn btn-default page-scroll itembutton' id = '" + name + "' onclick = 'javascript:whichDib();' href='#'><h3>&#10004</h3></a></td>");
+      								
+      								
+      								//alert(object.id + ' - ' + object.get("itemTitle"));
+    							}
+							},
+							
+							error: function(error) {
+								alert('error code: ' + error.message);
+							}
+						});
 					}
 
                 
@@ -154,18 +211,42 @@
 					<a href = "respond4.html"><img src = "img/dib4.jpg" style="width:500px"></a>
 					<a href = "respond5.html"><img src = "img/dib5.jpg" style="width:500px"></a>-->
 					
-					<table>
-						<tr>
-							<td style = "text-align:left;padding-right:50px">
-							<h3><b>Name:</b> Alaina Kafkes</h3>
+							<!--<h3><b>Name:</b> Alaina Kafkes</h3>
 							<h5><b>Price Offered:</b> $10</h5>
 							<h5><b>Contact:</b> alainak@u.northwestern.edu</h5>
-							<h5><b>Comments:</b> I love this item.</h5>
-							</td>
-							
+							<h5><b>Comments:</b> I love this item.</h5> -->
+					
+					<table>
+						<tr id = "2">
 							<td>
-							<a class="btn btn-default page-scroll" id = "itembutton" href="#"><h3>&#10004</h3></a>
+							<h3>No dibz yet.</h3>
+							<h4>Come back later!</h4>
 							</td>
+						</tr>
+						
+						<tr id = "3">
+						</tr>
+						
+						<tr id = "4">
+						</tr>
+						
+						<tr id = "5">
+						</tr>
+
+						<tr id = "6">
+						</tr>
+
+						<tr id = "7">
+						</tr>
+						
+						<tr id = "8">
+						</tr>
+						
+						<tr id = "9">
+						</tr>
+						
+						<tr id = "10">
+						
 						</tr>
 					</table>
 					

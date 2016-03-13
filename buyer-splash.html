@@ -99,28 +99,28 @@
 					}
 					 
 					function displayResult() {
-						alert("hello");
+						//alert("hello");
 						
 						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
 						
-						alert("it me");
+						//alert("it me");
 																	
 						var DibzSeller = Parse.Object.extend("DibzSeller");
 						query = new Parse.Query(DibzSeller);
 												
 						// take user input in text box
         				var userInput = $('#search').val();
-        				alert(userInput);
+        				//alert(userInput);
 						
 						// set constraints on query
 						query.contains("itemTitle", userInput);
-						query.limit = 9;
+						query.limit = 30;
 						query.ascending("itemTitle");
 						
 						//submit query
 						query.find({
 							success: function(results) {
-								alert("successfully retrieved " + results.length + " hits!");
+								//alert("successfully retrieved " + results.length + " hits!");
 								
 								for (var i = 0; i < results.length; i++) {
       								//var node = document.getElementById(i.toString());
@@ -152,11 +152,11 @@
 					
 					
 					function showAll() {
-						alert("hello");
+						//alert("hello");
 						
 						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
 						
-						alert("it me");
+						//alert("it me");
 																	
 						var DibzSeller = Parse.Object.extend("DibzSeller");
 						query = new Parse.Query(DibzSeller);
@@ -169,7 +169,7 @@
 						//submit query
 						query.find({
 							success: function(results) {
-								alert("successfully retrieved " + results.length + " hits!");
+								//alert("successfully retrieved " + results.length + " hits!");
 								
 								for (var i = 0; i < results.length; i++) {
       								//var node = document.getElementById(i.toString());
@@ -253,6 +253,125 @@
 
 					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
 						<div id = "9" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "10" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "11" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "12" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "13" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "14" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "15" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "16" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "17" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "18" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "19" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "20" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "21" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "22" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "23" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "24" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "25" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "26" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "27" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "28" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "29" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "30" style = "">
 						</div>
 					</td>
                 	</tr>

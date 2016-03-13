@@ -33,11 +33,11 @@
 	            	
 	            	<script type = "text/javascript">
 					function pullCorrect() {
-						alert("hello");
+						//alert("hello");
 						
 						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
 						
-						alert("it me");
+						//alert("it me");
 																	
 						var DibzSeller = Parse.Object.extend("DibzSeller");
 						query = new Parse.Query(DibzSeller);
@@ -52,7 +52,7 @@
 						// submit query
 						query.find({
 							success: function(results) {
-								alert("successfully retrieved " + results.length + " hits!");
+								//alert("successfully retrieved " + results.length + " hits!");
 								
 								for (var i = 0; i < results.length; i++) {
       								//var node = document.getElementById(i.toString());
@@ -123,7 +123,6 @@
         </div>
         <!-- /.container -->
     </nav>
-    
 
     <!-- Intro Section -->
     <section id="intro" class="intro-section">
@@ -150,14 +149,14 @@
                         <form name="calldibx" action="index_submit" method="get" accept-charset="utf-8">  
                             <ul style="list-style-type:none">  
                                 <li><label for="username">Name</label>  
-                                <input type="name" name="username" placeholder="John Dibz" required></li>  
-                                <li><label for="userprice">Price Offered</label>  
-                                <input type="price" name="priceoffered" placeholder="$100,000" required></li> 
+                                <input type="name" name="username" placeholder="John Dibz" id = "name" required></li>  
+                                <li><label for="userprice">Price Offered ($)</label>  
+                                <input type="price" name="priceoffered" placeholder="100" id = "price" required></li> 
                                 <li><label for="usermail">Contact</label>  
-                                <input type="email" name="useremail" placeholder="Email, phone #, Facebook" required></li> 
+                                <input type="email" name="useremail" placeholder="Email, phone #, Facebook" id = "contact" required></li> 
                                 <li><label for="usercomment">Comment</label>  
-                                <input type="comment" name="usercomment" placeholder="Leave Comment Here" required></li> 
-                                <a class="btn btn-default" href="confirmation.html" >Dibz! </a> 
+                                <input type="comment" name="usercomment" placeholder="Leave Comment Here" id = "comment" required></li> 
+                                <a class="btn btn-default itembutton" href="confirmation.html" onclick="javascript:saveDibz();">Call Dibz!</a> 
                             </ul>  
                         </form> 
                     <!-- <a class="btn btn-default page-scroll" href="choice.html" >Log-In</a> -->
@@ -173,6 +172,49 @@
             </div>
         </div>
     </section>
+    
+                <script type = "text/javascript">
+					function saveDibz() {
+						//alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						//alert("it me");
+																	
+						var DibzBuyer = Parse.Object.extend("DibzBuyer");
+						var dibzBuyer = new DibzBuyer();	
+				
+						var name = document.getElementById("name").value;
+						var price = document.getElementById("price").value;
+						var contact = document.getElementById("contact").value;
+						var comment = document.getElementById("comment").value;
+						var item = localStorage.title;
+
+						/*alert(name);
+						alert(price);
+						alert(contact);
+						alert(comment);
+						alert(item);*/
+									
+						dibzBuyer.save({
+							buyerName: name,
+							buyerPrice: price,
+							buyerContact: contact,
+							buyerComment: comment,
+							sellerItemTitle: item
+						},
+						
+						{
+							success: function(dibzBuyer) {
+								//alert('you did it!');
+							},
+							
+							error: function(dibzBuyer, error) {
+								alert('Failed to create new object, with error code: ' + error.message);
+							}
+						});
+					}
+                </script>
 
 
     <!-- jQuery -->
@@ -200,6 +242,10 @@
 		.scroll img:active {
     		opacity: .7;
 		}
+
+    	.itembutton:hover {
+            background-color: #fb6547;
+        }
 	</style>
 
 </body>

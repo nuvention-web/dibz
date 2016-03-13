@@ -73,11 +73,11 @@
             
             	<script type = "text/javascript">
 					function dibzAway() {
-						alert("hello");
+						//alert("hello");
 						
 						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
 						
-						alert("it me");
+						//alert("it me");
 																	
 						var DibzSeller = Parse.Object.extend("DibzSeller");
 						var dibzSeller = new DibzSeller();	
@@ -87,9 +87,9 @@
 						var price = document.getElementById("itemprice").value;
 						var imageFileName = document.getElementById("fileToUpload").value;
 
-						alert(title);
+						/*alert(title);
 						alert(description);
-						alert(price);
+						alert(price);*/
 									
 						dibzSeller.save({
 							itemTitle: title,
@@ -100,7 +100,7 @@
 						
 						{
 							success: function(dibzSeller) {
-								alert('you did it!');
+								//alert('you did it!');
 							},
 							
 							error: function(gameScore, error) {
