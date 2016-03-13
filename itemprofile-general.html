@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>Check Your Dibz</title>
+    
+    <!-- Parse -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min-about.css" rel="stylesheet">
@@ -26,7 +29,67 @@
 
 </head>
 
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload = "pullCorrect()">
+	            	
+	            	<script type = "text/javascript">
+					function pullCorrect() {
+						//alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						//alert("it me");
+																	
+						var DibzSeller = Parse.Object.extend("DibzSeller");
+						query = new Parse.Query(DibzSeller);
+						
+						// pulling from local storage
+						var itemToQuery = localStorage.title;
+						
+						// set constraints on query
+						query.startsWith("itemTitle", itemToQuery);
+						query.limit = 1;
+						
+						// submit query
+						query.find({
+							success: function(results) {
+								//alert("successfully retrieved " + results.length + " hits!");
+								
+								for (var i = 0; i < results.length; i++) {
+      								//var node = document.getElementById(i.toString());
+      								var divOfInterestNum = i + 1; 
+      								var divOfInterestStr = "#" + divOfInterestNum.toString();
+      								
+      								var object = results[i];
+      								var title = object.get("itemTitle");
+      								var description = object.get("itemDescription");
+      								var price = object.get("itemPrice");
+									
+									$(divOfInterestStr).html("<br>" + "<br>" + "<h4>" + title + "</h4>" + "<h6>" + "<b>Description:</b> " + description + "</h6>" + "<h6>" + "<b>Desired Price:</b> $" + price + "</h6>");
+      								
+      								// troubles changing div style...
+      								document.getElementById(divOfInterestNum.toString()).style.width = "250px";
+                					document.getElementById(divOfInterestNum.toString()).style.height = "350px";
+                					document.getElementById(divOfInterestNum.toString()).style.border = "10px solid #000";
+                					document.getElementById(divOfInterestNum.toString()).style.color = "black";
+      								
+      								//alert(object.id + ' - ' + object.get("itemTitle"));
+    							}
+							},
+							
+							error: function(error) {
+								alert('error code: ' + error.message);
+							}
+						});
+						
+					}
+
+                
+                </script>
+
+
+
+
+
 
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -78,13 +141,35 @@
 					<br>
 					<table>
 					<tr>
-					<td>
-					<img src = "img/item-watch.jpg" style="width:267px;height:400px;margin-right:150px">
-					</td>
+                	<td style = "padding-left:100px; padding-right:200px">
+                		<div id = "1" style="">
+                		</div>
+                	</td>
 					
 					<td>
-					<div class = "scroll" style = "text-align:left">
-					<h3>None</h3>
+					<div class = "scroll">
+					<!--<a href = "respond1.html"><img src = "img/dib1.jpg" style="width:500px"></a>
+					<a href = "respond2.html"><img src = "img/dib2.jpg" style="width:500px"></a>
+					<a href = "respond3.html"><img src = "img/dib3.jpg" style="width:500px"></a>
+					<a href = "respond4.html"><img src = "img/dib4.jpg" style="width:500px"></a>
+					<a href = "respond5.html"><img src = "img/dib5.jpg" style="width:500px"></a>-->
+					
+					<table>
+						<tr>
+							<td style = "text-align:left;padding-right:50px">
+							<h3><b>Name:</b> Alaina Kafkes</h3>
+							<h5><b>Price Offered:</b> $10</h5>
+							<h5><b>Contact:</b> alainak@u.northwestern.edu</h5>
+							<h5><b>Comments:</b> I love this item.</h5>
+							</td>
+							
+							<td>
+							<a class="btn btn-default page-scroll" id = "itembutton" href="#"><h3>&#10004</h3></a>
+							</td>
+						</tr>
+					</table>
+					
+					
 					</div>
 					</td>
 					</tr>
@@ -110,7 +195,7 @@
 		div.scroll {
     	background-color: white;
     	width: 500px;
-    	height: 400px;
+    	height: 300px;
     	overflow: scroll;
 		}
 		
@@ -121,6 +206,10 @@
 		.scroll img:active {
     		opacity: .7;
 		}
+		
+		#itembutton:hover {
+        	background-color: #fb6547;
+        }
 	</style>
 
 </body>

@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>Explore Items</title>
+    
+    <!-- Parse -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min-about.css" rel="stylesheet">
@@ -78,15 +81,187 @@
                     
                     <form id="searchbox" action="">
     					<input id="search" type="text" placeholder="Type here">
-    					<input id="submit" type="submit" onclick="showStuff(); return false;" value="Search">
-    					<input id="explore" type="submit" value="Clear" onclick="hideStuff(); return false;">
+    					<a class="btn btn-default page-scroll" onclick="javascript:displayResult()" href="#">Search</a>
+    					<a class="btn btn-default page-scroll" onclick="javascript:showAll()" href="#">Explore</a>
+    					<!-- <input id = "submit" type = "submit" onclick="return displayResult();" value = "Search">
+    					<input id="explore" type="submit" value="Clear"> -->
+    					<!-- <input id="submit" type="submit" onclick="showStuff(); return false;" value="Search">
+    					<input id="explore" type="submit" value="Clear" onclick="hideStuff(); return false;"> -->
 					</form>
+					
+				<script type = "text/javascript">
+					function whichItem() {
+						$('.itembutton').click(function() {
+    						//alert(this.id);
+    						localStorage.setItem("title", this.id);
+    						document.getElementById(this.id).href="calldibz-general.html";
+						});
+					}
+					 
+					function displayResult() {
+						alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						alert("it me");
+																	
+						var DibzSeller = Parse.Object.extend("DibzSeller");
+						query = new Parse.Query(DibzSeller);
+												
+						// take user input in text box
+        				var userInput = $('#search').val();
+        				alert(userInput);
+						
+						// set constraints on query
+						query.contains("itemTitle", userInput);
+						query.limit = 9;
+						query.ascending("itemTitle");
+						
+						//submit query
+						query.find({
+							success: function(results) {
+								alert("successfully retrieved " + results.length + " hits!");
+								
+								for (var i = 0; i < results.length; i++) {
+      								//var node = document.getElementById(i.toString());
+      								var divOfInterestNum = i + 1; 
+      								var divOfInterestStr = "#" + divOfInterestNum.toString();
+      								
+      								var object = results[i];
+      								var title = object.get("itemTitle");
+      								var description = object.get("itemDescription");
+      								var price = object.get("itemPrice");
+									
+									$(divOfInterestStr).html("<br>" + "<br>" + "<h4>" + title + "</h4>" + "<h6>" + "<b>Description:</b> " + description + "</h6>" + "<h6>" + "<b>Desired Price:</b> $" + price + "</h6>" + "<br>" + "<a class='btn btn-default page-scroll itembutton'" + " id ='" + title + "' "+ "onclick = 'javascript:whichItem();' href='#'>Call Dibz!</a>");
+      								
+      								// troubles changing div style...
+      								document.getElementById(divOfInterestNum.toString()).style.width = "250px";
+                					document.getElementById(divOfInterestNum.toString()).style.height = "350px";
+                					document.getElementById(divOfInterestNum.toString()).style.border = "10px solid #000";
+                					document.getElementById(divOfInterestNum.toString()).style.color = "black";
+      								
+      								//alert(object.id + ' - ' + object.get("itemTitle"));
+    							}
+							},
+							
+							error: function(error) {
+								alert('error code: ' + error.message);
+							}
+						});
+					}
+					
+					
+					function showAll() {
+						alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						alert("it me");
+																	
+						var DibzSeller = Parse.Object.extend("DibzSeller");
+						query = new Parse.Query(DibzSeller);
+						
+						// set constraints on query
+						query.notEqualTo("itemTitle", "");
+						query.limit = 9;
+						query.ascending("itemTitle");
+						
+						//submit query
+						query.find({
+							success: function(results) {
+								alert("successfully retrieved " + results.length + " hits!");
+								
+								for (var i = 0; i < results.length; i++) {
+      								//var node = document.getElementById(i.toString());
+      								var divOfInterestNum = i + 1; 
+      								var divOfInterestStr = "#" + divOfInterestNum.toString();
+      								
+      								var object = results[i];
+      								var title = object.get("itemTitle");
+      								var description = object.get("itemDescription");
+      								var price = object.get("itemPrice");
+									
+									$(divOfInterestStr).html("<br>" + "<br>" + "<h4>" + title + "</h4>" + "<h6>" + "<b>Description:</b> " + description + "</h6>" + "<h6>" + "<b>Desired Price:</b> $" + price + "</h6>" + "<br>" + "<a class='btn btn-default page-scroll itembutton'" + " id ='" + title + "' "+ "onclick = 'javascript:whichItem();' href='#'>Call Dibz</a>");
+      								
+      								// troubles changing div style...
+      								document.getElementById(divOfInterestNum.toString()).style.width = "250px";
+                					document.getElementById(divOfInterestNum.toString()).style.height = "350px";
+                					document.getElementById(divOfInterestNum.toString()).style.border = "10px solid #000";
+                					document.getElementById(divOfInterestNum.toString()).style.color = "black";
+      								
+      								//alert(object.id + ' - ' + object.get("itemTitle"));
+    							}
+							},
+							
+							error: function(error) {
+								alert('error code: ' + error.message);
+							}
+						});
+					}
+                </script>
 					
                     <br>
                     <br>
-                    <div class = "scroll">
+					
+					<div class = "scroll">
                     <table align="center" style="margin: 0px auto;">
-                    <tr>
+
+					<tr>
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "1" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "2" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "3" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "4" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "5" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "6" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "7" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "8" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "9" style = "">
+						</div>
+					</td>
+                	</tr>
+                	
+                	</table>
+                	</div>
+                    
+                    <!--
+                    
                     <td><a href = "calldibz_item1.html"><img src = "img/item-boots.jpg" id = "boots" class = "boots" style="width:267px;height:400px;padding-right:20px;"></a></td>
                     
                     <td><a href = "#"><img src = "img/item-boots2.jpg" id = "boots " class = "boots" style="width:267px;height:400px;padding-right:20px;"></a></td>
@@ -97,12 +272,12 @@
                     
                     <td><a href = "#"><img src = "img/item-watch.jpg" id = "watch" class = "watch" style="width:267px;height:400px;"></a></td>
                     
-                	</tr>
-                	</table>
-                	</div>
+					-->
+					
                 	
                 	<br>
                 	<br>
+                	
                 </div>
             </div>
         </div>
@@ -121,41 +296,10 @@
     <script src="js/scrolling-nav.js"></script>
     
     <style>
-		
-		.scroll img:hover {
-    		opacity: .5;
-		}
-		
-	</style>
-	
-	<script type="text/javascript">	
-		document.getElementById("boots").style.display = "none";
-		document.getElementById("boots ").style.display = "none";
-		document.getElementById("boots  ").style.display = "none";
-		document.getElementById("snake").style.display = "none";
-		document.getElementById("watch").style.display = "none";
-		
-		function showStuff() {
-			id = document.getElementById("search").value;
-   			document.getElementById(id).style.display = 'block';
-   			
-   			if (id == "boots") {
-   				document.getElementById(id + " ").style.display = 'block';
-   				document.getElementById(id + "  ").style.display = 'block';
-   			}
-		}
-	</script>
-	
-	<script type="text/javascript">	
-		
-		function hideStuff() {
-			document.getElementById("boots").style.display = "none";
-			document.getElementById("boots ").style.display = "none";
-			document.getElementById("boots  ").style.display = "none";
-			document.getElementById("snake").style.display = "none";
-			document.getElementById("watch").style.display = "none";
-		}
-	</script>
+    	.itembutton:hover {
+            background-color: #fb6547;
+        }
+    </style>
 
 </body>
 

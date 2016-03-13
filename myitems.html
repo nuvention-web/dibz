@@ -10,6 +10,9 @@
     <meta name="author" content="">
 
     <title>My Items</title>
+    
+	<!-- Parse -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min-about.css" rel="stylesheet">
@@ -28,7 +31,68 @@
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload = "refreshItems()">
+				<script>
+                	function whichItem() {
+						$('.itembutton').click(function() {
+    						alert(this.id);
+    						localStorage.setItem("title", this.id);
+    						document.getElementById(this.id).href="itemprofile-general.html";
+						});
+					}
+				</script>
+					
+					
+	            	<script type = "text/javascript">	            	
+					function refreshItems() {
+						//alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						//alert("it me");
+																	
+						var DibzSeller = Parse.Object.extend("DibzSeller");
+						query = new Parse.Query(DibzSeller);
+						
+						// set constraints on query
+						query.notEqualTo("itemTitle", "");
+						query.limit = 9;
+						query.ascending("itemTitle");
+						
+						// submit query
+						query.find({
+							success: function(results) {
+								//alert("successfully retrieved " + results.length + " hits!");
+								
+								for (var i = 0; i < results.length; i++) {
+      								//var node = document.getElementById(i.toString());
+      								var divOfInterestNum = i + 1; 
+      								var divOfInterestStr = "#" + divOfInterestNum.toString();
+      								
+      								var object = results[i];
+      								var title = object.get("itemTitle");
+      								var description = object.get("itemDescription");
+      								var price = object.get("itemPrice");
+									
+									$(divOfInterestStr).html("<br>" + "<br>" + "<h4>" + title + "</h4>" + "<h6>" + "<b>Description:</b> " + description + "</h6>" + "<h6>" + "<b>Desired Price:</b> $" + price + "</h6>" + "<br>" + "<a class='btn btn-default page-scroll itembutton'" + " id ='" + title + "' "+ "onclick = 'javascript:whichItem();' href='#'>Who called dibz?</a>");
+      								
+      								// troubles changing div style...
+      								document.getElementById(divOfInterestNum.toString()).style.width = "250px";
+                					document.getElementById(divOfInterestNum.toString()).style.height = "350px";
+                					document.getElementById(divOfInterestNum.toString()).style.border = "10px solid #000";
+                					document.getElementById(divOfInterestNum.toString()).style.color = "black";
+      								
+      								//alert(object.id + ' - ' + object.get("itemTitle"));
+    							}
+							},
+							
+							error: function(error) {
+								alert('error code: ' + error.message);
+							}
+						});
+						
+					}
+                </script>
 
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,14 +144,112 @@
                     <br>
                     <div class = "scroll">
                     <table align="center" style="margin: 0px auto;">
-                    <tr>
+                    <!--<tr>
                     <td><a href = "itemprofile1.html"><img src = "img/item-boots.jpg" style="width:267px;height:400px;padding-right:20px;"></a></td>
                     
                     <td><a href = "itemprofile2.html"><img src = "img/item-snake.jpg" style="width:267px;height:400px;padding-right:20px;"></a></td>
                     
                     <td><a href = "itemprofile3.html"><img src = "img/item-watch.jpg" style="width:267px;height:400px;"></a></td>
                     
+                	</tr>-->
+                	
+                	<!-- <tr>
+                	<td style = "padding-right:20px">
+                		<a href = "itemprofile1.html">
+                		<div style="width:250px;height:350px;border:10px solid #000;color:black">
+                			<br>
+                			<img src = "img/llbean-boots.jpg" style = "width:120px;height:140px">
+                			<br>
+                			<br>
+                			<h4>LL Bean Boots</h4>
+                			<h6><b>Description:</b> Black/Brown, Used</h6>
+                			<h6><b>Desired Price:</b> $70</h6>
+                		</div>
+                		</a>
+                	</td>
+
+                	<td style = "padding-right:20px">
+                		<a href = "itemprofile2.html">
+                		<div style="width:250px;height:350px;border:10px solid #000;color:black">
+                			<br>
+							<img src = "img/snake.jpg" style = "width:120px;height:140px">
+                			<br>
+                			<br>
+                			<h4>Pet Snake</h4>
+                			<h6><b>Description:</b> Python</h6>
+                			<h6><b>Desired Price:</b> $50</h6>
+                		</div>
+                		</a>
+                		
+                	<td style = "padding-right:20px">
+                		<a href = "itemprofile3.html">
+                		<div style="width:250px;height:350px;border:10px solid #000;color:black">
+                			<br>
+                			<img src = "img/apple-watch.jpg" style = "width:120px;height:140px">
+                			<br>
+                			<br>
+                			<h4>Apple Watch</h4>
+                			<h6><b>Description:</b> Silver Face, Black Strap</h6>
+                			<h6><b>Desired Price:</b> $600</h6>
+                		</div>
+                		</a>
+                	</td>
+                	</tr> -->
+
+					<tr>
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "1" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "2" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px">
+						<div id = "3" style = "">
+						</div>
+					</td>
+
                 	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "4" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "5" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "6" style = "">
+						</div>
+					</td>
+
+                	</tr>
+                	
+                	<tr>
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "7" style = "">
+						</div>
+					</td>
+					
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "8" style = "">
+						</div>
+					</td>
+
+					<td style = "padding-right:20px; padding-bottom:20px; padding-top:20px">
+						<div id = "9" style = "">
+						</div>
+					</td>
+
+                	</tr>
+                	
                 	</table>
                 	</div>
                 	
@@ -98,7 +260,7 @@
         </div>
     </section>
 
-
+    
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -110,12 +272,11 @@
     <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
     
-    <style>
-		
-		.scroll img:hover {
-    		opacity: .5;
-		}
-	</style>
+                <style>
+                 .itembutton:hover {
+                    background-color: #fb6547;
+                }
+                </style>
 
 </body>
 

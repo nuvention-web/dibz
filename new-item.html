@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>My Items</title>
+    <!-- Parse -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+    <title>Add Item</title>
     <link href="css/bootstrap.min-about.css" rel="stylesheet">
     <link href="css/scrolling-nav.css" rel="stylesheet">
 </head>
@@ -59,9 +61,6 @@
                     <p>Price </p>
                     <input type="text" id="itemprice" name="itemprice">
                     <p></p>
-                    <p>Sell by: </p>
-                    <input type="text" id="itemduration" name="itemduration">
-                    <p></p>
                 </form>
                 <form >
                     <!-- if you put the commented-out code below into the form tag above you can call a server-side code thing to actually put the photo in backend -->
@@ -69,12 +68,51 @@
                     Select image to upload:
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <br>
-                    <img src="img/simplecamera.png" height="200" width="275">
-                    <br>
-                    <br>
-                    <input type="submit" id="submitbutton" value="Upload Image" name="submit">
-                </form>
-                <input type="button" id="itembutton" value="Create New Item!" onclick="createItem()">
+                    </form>
+                    <a href="myitems.html" id ="itembutton" class="btn btn-default page-scroll" onclick="javascript:dibzAway();">Add Item</a>                
+            
+            	<script type = "text/javascript">
+					function dibzAway() {
+						alert("hello");
+						
+						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+						
+						alert("it me");
+																	
+						var DibzSeller = Parse.Object.extend("DibzSeller");
+						var dibzSeller = new DibzSeller();	
+				
+						var title = document.getElementById("itemtitle").value;
+						var description = document.getElementById("itemdescription").value;
+						var price = document.getElementById("itemprice").value;
+						var imageFileName = document.getElementById("fileToUpload").value;
+
+						alert(title);
+						alert(description);
+						alert(price);
+									
+						dibzSeller.save({
+							itemTitle: title,
+							itemDescription: description,
+							itemPrice: price,
+							//itemImage: file
+						},
+						
+						{
+							success: function(dibzSeller) {
+								alert('you did it!');
+							},
+							
+							error: function(gameScore, error) {
+								alert('Failed to create new object, with error code: ' + error.message);
+							}
+						});
+					}
+                </script>
+                
+                
+                <!-- Local Storage
+                
                 <script>
                 function createItem() {
                     localStorage.setItem("title", document.getElementById("itemtitle").innerHTML);
@@ -84,6 +122,22 @@
                     window.location.assign("myitems.html");
                 }
                 </script>
+                
+                -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <style>
                 form {
                     text-align: left;
@@ -139,7 +193,7 @@
 
                 }
                  #itembutton:hover {
-                    background-color: #C64E00;
+                    background-color: #fb6547;
                 }
                 </style>
             </div>
