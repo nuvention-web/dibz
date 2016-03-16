@@ -10,6 +10,8 @@
     <!-- Parse -->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
     <title>Add Item</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link href="css/bootstrap.min-about.css" rel="stylesheet">
     <link href="css/scrolling-nav.css" rel="stylesheet">
 </head>
@@ -38,7 +40,7 @@
                         <a class="page-scroll" href="about.html">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="choice.html">Buy/Sell Switch</a>
+                        <a class="page-scroll" href="choice.html">Buy/Sell </a>
                     </li>
                 </ul>
             </div>
@@ -62,82 +64,60 @@
                     <input type="text" id="itemprice" name="itemprice">
                     <p></p>
                 </form>
-                <form >
-                    <!-- if you put the commented-out code below into the form tag above you can call a server-side code thing to actually put the photo in backend -->
-                    <!-- action="upload.php" method="post" enctype="multipart/form-data" -->
-                    Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <br>
-                    </form>
-                    <a href="myitems.html" id ="itembutton" class="btn btn-default page-scroll" onclick="javascript:dibzAway();">Add Item</a>                
-            
-            	<script type = "text/javascript">
-					function dibzAway() {
-						//alert("hello");
-						
-						Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-						
-						//alert("it me");
-																	
-						var DibzSeller = Parse.Object.extend("DibzSeller");
-						var dibzSeller = new DibzSeller();	
-				
-						var title = document.getElementById("itemtitle").value;
-						var description = document.getElementById("itemdescription").value;
-						var price = document.getElementById("itemprice").value;
-						var imageFileName = document.getElementById("fileToUpload").value;
+                <script>
+                function dibzAway() {
+                    //alert("hello");
 
-						/*alert(title);
-						alert(description);
-						alert(price);*/
-									
-						dibzSeller.save({
-							itemTitle: title,
-							itemDescription: description,
-							itemPrice: price,
-							//itemImage: file
-						},
-						
-						{
-							success: function(dibzSeller) {
-								//alert('you did it!');
-							},
-							
-							error: function(gameScore, error) {
-								alert('Failed to create new object, with error code: ' + error.message);
-							}
-						});
-					}
+                    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+
+                    //alert("it me");
+
+                    var DibzSeller = Parse.Object.extend("DibzSeller");
+                    var dibzSeller = new DibzSeller();
+
+                    var title = document.getElementById("itemtitle").value;
+                    var description = document.getElementById("itemdescription").value;
+                    var price = document.getElementById("itemprice").value;
+                    var imageFileName = document.getElementById("fileselect").value;
+                    /*alert(title);
+
+                    alert(description);
+                    alert(price);*/
+
+                    dibzSeller.save({
+                            itemTitle: title,
+                            itemDescription: description,
+                            itemPrice: price,
+                            itemImageFake: imageFileName
+                        },
+
+                        {
+                            success: function(dibzSeller) {
+                                //alert('you did it!');
+                                window.location.assign("myitems.html");
+                            },
+
+                            error: function(dibzSeller, error) {
+                                alert('Failed to create new object, with error code: ' + error.message);
+                            }
+                        });
+                }
                 </script>
-                
-                
-                <!-- Local Storage
-                
                 <script>
                 function createItem() {
                     localStorage.setItem("title", document.getElementById("itemtitle").innerHTML);
                     localStorage.setItem("description", document.getElementById("itemdescription").innerHTML);
                     localStorage.setItem("price", document.getElementById("itemprice").innerHTML);
-                    localStorage.setItem("duration", document.getElementById("itemduration").innerHTML);
-                    window.location.assign("myitems.html");
+                    localStorage.setItem("photo", document.getElementById("fileselect").value);
+                    //window.location.assign("myitems.html");
+
                 }
                 </script>
-                
-                -->
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+        
+                        <input type="file" name="fileselect" id="fileselect"></input>
+                        <input onclick="dibzAway();" id="uploadbutton" type="button" value="Upload">
+
+                </script>
                 <style>
                 form {
                     text-align: left;
@@ -188,11 +168,12 @@
                     cursor: pointer;
                     outline: none;
                 }
-                #submitbutton:hover{
+                
+                #submitbutton:hover {
                     background-color: #a9a9a9;
-
                 }
-                 #itembutton:hover {
+                
+                #itembutton:hover {
                     background-color: #fb6547;
                 }
                 </style>
