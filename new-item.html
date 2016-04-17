@@ -2,192 +2,170 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Parse -->
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
-    <title>Add Item</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link href="css/bootstrap.min-about.css" rel="stylesheet">
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <title>Dibz</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="home.html"><img src="img/dibz-logo.png" alt="Dibz Home" style="width:30px;height:30px;"></a>
+                <a class="navbar-brand" href="index.html"><img src = "logo/Slide1.png" style = "height: 32px; width: 32px"></a>
             </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
+                    <li>
+                        <a href="manage.html">Manage</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="home.html">Home</a>
+                        <a href="new-item.html">Add</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="choice.html">Buy/Sell </a>
+                        <a href="#">Profile</a>
                     </li>
                 </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
     </nav>
-    <section id="intro" class="intro-section">
-        <div class="container">
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">NEW ITEM
+                    <!-- <small>Secondary Text</small> -->
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-title">Item Title</label>  
+  <div class="col-md-4">
+  <input id="item-title" name="item-title" type="text" placeholder="What are you selling?" class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-description">Description</label>  
+  <div class="col-md-4">
+  <input id="item-description" name="item-description" type="text" placeholder="Keep it brief." class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-description">Image</label>  
+  <div class="col-md-4">
+	<input type="file" name="fileselect" id="fileselect"></input>
+
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-price">Price</label>  
+  <div class="col-md-4">
+  <input id="item-price" name="item-price" type="number" placeholder="No need to include the $." class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-bid">Bidding Period</label>
+  <div class="col-md-4">
+    <select id="item-bid" name="item-bid" class="form-control" required>
+      <option value="">24 hours</option>
+      <option value="">48 hours</option>
+      <option value="">72 hours</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-payment">Accepted Payment</label>  
+  <div class="col-md-4">
+  <input id="item-payment" name="item-payment" type="text" placeholder="Cash, Venmo, PayPal, Dogecoin, etc." class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="item-pickup">Pick-Up Instructions</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="item-pickup" name="item-pickup" required>Include any relevant information including street address, times/days for pick-up, contact information, etc.</textarea>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<br>
+<a class="btn btn-success" role="button" style = "display: table; margin: 0 auto"><h4>Add</h4></a>
+
+
+        <!-- Footer -->
+        <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>New Item</h1>
+                    <p>Copyright &copy; Dibz 2016</p>
                 </div>
-                <br>
-                <form>
-                    <p> Title </p>
-                    <input type="text" id="itemtitle" name="itemtitle">
-                    <p></p>
-                    <p>Short Description </p>
-                    <input type="text" id="itemdescription" name="itemdescription">
-                    <p></p>
-                    <p>Price </p>
-                    <input type="text" id="itemprice" name="itemprice">
-                    <p></p>
-                </form>
-                <script>
-                function dibzAway() {
-                    //alert("hello");
-
-                    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-
-                    //alert("it me");
-
-                    var DibzSeller = Parse.Object.extend("DibzSeller");
-                    var dibzSeller = new DibzSeller();
-
-                    var title = document.getElementById("itemtitle").value;
-                    var description = document.getElementById("itemdescription").value;
-                    var price = document.getElementById("itemprice").value;
-                    var imageFileName = document.getElementById("fileselect").value;
-                    /*alert(title);
-
-                    alert(description);
-                    alert(price);*/
-
-                    dibzSeller.save({
-                            itemTitle: title,
-                            itemDescription: description,
-                            itemPrice: price,
-                            itemImageFake: imageFileName
-                        },
-
-                        {
-                            success: function(dibzSeller) {
-                                //alert('you did it!');
-                                window.location.assign("myitems.html");
-                            },
-
-                            error: function(dibzSeller, error) {
-                                alert('Failed to create new object, with error code: ' + error.message);
-                            }
-                        });
-                }
-                </script>
-                <script>
-                function createItem() {
-                    localStorage.setItem("title", document.getElementById("itemtitle").innerHTML);
-                    localStorage.setItem("description", document.getElementById("itemdescription").innerHTML);
-                    localStorage.setItem("price", document.getElementById("itemprice").innerHTML);
-                    localStorage.setItem("photo", document.getElementById("fileselect").value);
-                    //window.location.assign("myitems.html");
-
-                }
-                </script>
-        
-                        <input type="file" name="fileselect" id="fileselect"></input>
-                        <input onclick="dibzAway();" id="uploadbutton" type="button" value="Upload">
-
-                </script>
-                <style>
-                form {
-                    text-align: left;
-                }
-                
-                p {
-                    text-align: inherit;
-                    text-indent: 5px;
-                }
-                
-                input[type=text] {
-                    text-align: left;
-                    width: 100%;
-                    padding: 12px 20px;
-                    margin: 8px;
-                    border: 1px solid gray;
-                    border-radius: 2px;
-                }
-                
-                input[type=file] {
-                    text-align: left;
-                    width: 50%;
-                    padding: 12px 20px;
-                    margin: 8px;
-                    border: 1px solid gray;
-                    border-radius: 2px;
-                }
-                
-                input[type=submit] {
-                    text-align: left;
-                    width: 15%;
-                    padding: 10px 10px;
-                    margin: 8px;
-                    border: 1px solid gray;
-                    border-radius: 2px;
-                    outline: none;
-                }
-                
-                input[type=button] {
-                    width: 100%;
-                    text-align: center;
-                    background-color: #d35c12;
-                    color: white;
-                    padding: 12px 20px;
-                    margin: 8px;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    outline: none;
-                }
-                
-                #submitbutton:hover {
-                    background-color: #a9a9a9;
-                }
-                
-                #itembutton:hover {
-                    background-color: #fb6547;
-                }
-                </style>
             </div>
-            <br>
-            <br>
-        </div>
-        </div>
-        </div>
-    </section>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
     <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
+
 </body>
 
 </html>
