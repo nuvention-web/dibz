@@ -16,6 +16,9 @@
 
     <!-- Custom CSS -->
     <link href="css/3-col-portfolio.css" rel="stylesheet">
+    
+    <!-- Parse -->
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,6 +26,47 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+			<script>
+                function dibzAway() {
+                    //alert("hello");
+
+                    Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
+
+                    //alert("it me");
+
+                    var DibzSeller = Parse.Object.extend("DibzSeller");
+                    var dibzSeller = new DibzSeller();
+
+                    var title = document.getElementById("item-title").value;
+                    var description = document.getElementById("item-description").value;
+                    var image = document.getElementById("fileselect").value;
+                    var price = document.getElementById("item-price").value;
+                    var bid = document.getElementById("item-bid").value;
+                    var payment = document.getElementById("item-payment").value;
+                    var pickup = document.getElementById("item-pickup").value;
+
+                    dibzSeller.save({
+                            itemTitle: title,
+                            itemDescription: description,
+                            //itemImage: image,
+                            itemPrice: price,
+                            itemBid: bid,
+                            itemPay: payment,
+                            itemPickup: pickup
+                        },
+
+                        {
+                            success: function(dibzSeller) {
+                                alert('you did it!');
+                                //window.location.assign("myitems.html");
+                            },
+
+                            error: function(dibzSeller, error) {
+                                alert('Failed to create new object, with error code: ' + error.message);
+                            }
+                        });
+                }
+                </script>
 
 </head>
 
@@ -51,7 +95,7 @@
                         <a href="new-item.html">Add</a>
                     </li>
                     <li>
-                        <a href="#">Profile</a>
+                        <a href="profile.html">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -144,7 +188,7 @@
 </fieldset>
 </form>
 <br>
-<a class="btn btn-success" role="button" style = "display: table; margin: 0 auto"><h4>Add</h4></a>
+<a href = "javascript:dibzAway();" class="btn btn-success" role="button" style = "display: table; margin: 0 auto"><h4>Add</h4></a>
 
 
         <!-- Footer -->
