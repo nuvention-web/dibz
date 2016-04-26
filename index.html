@@ -21,7 +21,7 @@
     
     <!-- Modal CSS -->
     <link href="css/modal.css" rel="stylesheet">
-    
+    <script src="js/dibz.js"> </script>
     <!-- Parse -->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
@@ -43,8 +43,8 @@
             var User = Parse.Object.extend("User");
             var user = new User();
 
-            var email = document.getElementById("register_email").value;
-            var password = document.getElementById("register_password").value;
+            var email = document.getElementById("login_username").value;
+            var password = document.getElementById("login_password").value;
 			alert(email);
 			alert(password);
 
@@ -57,65 +57,14 @@
             {
             	success: function(user) {
                     alert('you did it!');
-                    window.location.href="new-item.html";
                 },
 
                 error: function(user, error) {
                     alert('Failed to add new user, with error code: ' + error.message);
-                    window.location.href="index.html";
                 }
             });
         }
-        
-        function searchUser() {
-        	alert("hello");
-
-            Parse.initialize("uDI0VDtquHc3ytgVG5zdN9jZJMcz6m1qcB9jfTML", "bOEYfgqx2tOY0z1cAXcoLzUPqIzacY3c81AWcDs6")
-
-            alert("it me");
-
-            //var User = Parse.Object.extend("User");
-            //var query = new Parse.Query(Parse.User);
-
-            // take user input in text box
-            var email = $('#login_username').val();
-            var password = $('#login_password').val();
-            alert(email);
-            alert(password);
-            
-            Parse.User.logIn(email, password, {
-        		success: function(user) {
-            		alert("Login success.");
-            		window.location.href="manage.html";
-            	// Do stuff after successful login.
-        		},
-        		error: function(user, error) {
-            		alert("Login failure, with error code: " + error.message);
-            		window.location.href="index.html";
-            	// The login failed. Check error to see why.
-        		}
-    		});
-
-/*
-            // set constraints on query
-            query.equalTo("username", email);
-            query.equalTo("password", password);
-
-            //submit query
-            query.first({ // limits to one result
-                success: function(results) {
-                	alert("found user!");
-					// code here to generate user-specific environment
-            	},
-
-				error: function(error) {
-                    alert('error code: ' + error.message);
-                }
-            });
-*/
-        }
-        
-    </script>
+        </script>
 
 </head>
 
@@ -245,7 +194,7 @@
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <a onclick = "javascript:searchUser();" href = "#" type="submit" class="btn btn-primary btn-lg btn-block">Login</a>
+                                <button onclick = "newUser();" type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                             </div>
 				    	    <div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
@@ -266,7 +215,7 @@
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <a type="submit" class="btn btn-primary btn-lg btn-block">Send</a>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
                             </div>
                             <div>
                                 <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
@@ -289,7 +238,7 @@
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <a onclick = "javascript:newUser();" href = "#" type="submit" class="btn btn-primary btn-lg btn-block">Register</a>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
                             </div>
                             <div>
                                 <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
