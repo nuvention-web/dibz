@@ -11,11 +11,15 @@
 
     <title>Dibz</title>
 
-    
+    <!-- Modal CSS -->
+    <link href="css/modal.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/dibz.js"> </script>
 
     <link href="css/3-col-portfolio.css" rel="stylesheet">
+    
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+
 
 </head>
 
@@ -34,15 +38,15 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <!--<li>
                         <a href="manage.html">Manage</a>
                     </li>
                     <li>
                         <a href="new-item.html">Add</a>
                     </li>
                     <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
+                        <a href="profile.html">Buyer Link</a>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -52,82 +56,30 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">PROFILE
+                <h1 class="page-header">DIANA'S ITEMS
             </div>
         </div>
-We should fill this in!
-<!-- <form class="form-horizontal">
-<fieldset>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-title">Item Title</label>  
-  <div class="col-md-4">
-  <input id="item-title" name="item-title" type="text" placeholder="What are you selling?" class="form-control input-md" required>
     
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-description">Description</label>  
-  <div class="col-md-4">
-  <input id="item-description" name="item-description" type="text" placeholder="Keep it brief." class="form-control input-md" required>
+    <!-- Page Content -->
+    <div>
+    	<buyer></buyer>
+    </div>
     
-  </div>
-</div>
+    <script src="buyitem.tag" type="riot/tag"></script>
+    <script src="buyer.tag" type="riot/tag"></script>
+    <script src="managepage.tag" type="riot/tag"></script>
 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-description">Image</label>  
-  <div class="col-md-4">
-	<input type="file" name="fileselect" id="fileselect"></input>
+    <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
+    <script>
+      riot.mount('*')
+    </script>
 
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-price">Price</label>  
-  <div class="col-md-4">
-  <input id="item-price" name="item-price" type="number" placeholder="No need to include the $." class="form-control input-md" required>
-    
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-bid">Bidding Period</label>
-  <div class="col-md-4">
-    <select id="item-bid" name="item-bid" class="form-control" required>
-      <option value="">24 hours</option>
-      <option value="">48 hours</option>
-      <option value="">72 hours</option>
-    </select>
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-payment">Accepted Payment</label>  
-  <div class="col-md-4">
-  <input id="item-payment" name="item-payment" type="text" placeholder="Cash, Venmo, PayPal, Dogecoin, etc." class="form-control input-md" required>
-    
-  </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="item-pickup">Pick-Up Instructions</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="item-pickup" name="item-pickup" required>Include any relevant information including street address, times/days for pick-up, contact information, etc.</textarea>
-  </div>
-</div>
-
-</fieldset>
-</form>
-<br>
-<a class="btn btn-success" role="button" style = "display: table; margin: 0 auto"><h4>Add</h4></a>
- -->
 
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Dibz 2016</p>
+                    <!--<p>Copyright &copy; Dibz 2016</p>-->
                 </div>
             </div>
             <!-- /.row -->

@@ -9,19 +9,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Portfolio Item - Start Bootstrap Template</title>
+    <title>Dibz</title>
 
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/portfolio-item.css" rel="stylesheet">
-    <script src="js/dibz.js"> </script>
+    <!-- Custom CSS -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet">
+<script src="js/dibz.js"> </script>
 
 </head>
 
 <body>
 
-     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -31,6 +35,7 @@
                 </button>
                 <a class="navbar-brand" href="index.html"><img src = "logo/Slide1.png" style = "height: 32px; width: 32px"></a>
             </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
@@ -40,125 +45,49 @@
                         <a href="new-item.html">Add</a>
                     </li>
                     <li>
-                        <a href="profile.html">Profile</a>
+                        <a href="profile.html">Buyer Link</a>
                     </li>
                 </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </nav>- /.container -->
+        <!-- /.container -->
     </nav>
 
-    <div class="container">
+    <!-- Page Content -->
+    <itemlisting1></itemlisting1>
+    
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">FLUFFY
-                    <small>Animal</small>
-                </h1>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-8">
-                <img class="img-responsive" src="1.jpg" alt="">
-            </div>
-
-            <div class="col-md-4">
-                <h3>Product Description</h3>
-                <p>She is friendly and likes to eat a lot. She eats almost any vegitable, but you can also feed her food from the pet store. She generally needs her cage cleaned one a week but doesn't require much more care than that.</p>
-                <h3>Product Details</h3>
-                <ul>
-                    <li>Accepting bids for 48 hours</li>
-                    <li>Payment: Venmo & Cash</li>
-                    <li>Pickup ONLY: 1820 Chicago Ave. Evanston, IL 60201</li>
-                    <li>Highest Current Dib: $40</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">My Dibz</h3>
-            </div>
-
-        </div>
-
-
-        <div class="well">
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-right">
-                                <a class="btn btn-success">Accept Dibz</a>
-                            </div>
-                            Morty Shapiro - $10
-                            
-                            <span class="pull-right">7 hours ago</span>
-                            <p>Northwestern Student - On Campus</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-right">
-                                <a class="btn btn-success">Accept Dibz</a>
-                            </div>
-                            Niki Patel - $40
-                            <span class="pull-right">4 days ago</span>
-                            <p>Northwestenrn Student - Off Campus</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-right">
-                                <a class="btn btn-success">Accept Dibz</a>
-                            </div>
-                            Cookie Monster - $3
-                            
-                            <span class="pull-right">9 days ago</span>
-                            <p>Evanston Resident - 3 miles away</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-right">
-                                <a class="btn btn-success">Accept Dibz</a>
-                            </div>
-                            Justin Jackson - $35
-                            
-                            <span class="pull-right">10 days ago</span>
-                            <p>Northwestern Student - On Campus</p>
-                        </div>
-                    </div>
-
-        <hr>
-
+        <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Dibz 2016</p>
                 </div>
             </div>
+            <!-- /.row -->
         </footer>
 
-    </div>
+    <!-- /.container -->
 
+    <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+
+    <script src="item.tag" type="riot/tag"></script>
+    <script src="listings.tag" type="riot/tag"></script>
+    <script src="itemlisting.tag" type="riot/tag"></script>
+    <script src="itemlistingitem.tag" type="riot/tag"></script>
+    <script src="itemlistingdib.tag" type="riot/tag"></script>
+
+
+    <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
+    <script>
+      riot.mount('*')
+    </script>
 
 </body>
 
