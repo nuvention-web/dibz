@@ -224,7 +224,7 @@
     	
     	var listingRef = myFirebaseRef.child('listing')
     	
-    	listing.on('value', function (snap) {
+    	listingRef.on('value', function (snap) {
     		console.log(snap.val())
     	})
     </script>
@@ -238,7 +238,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     
-    <script src="sample.tag" type="riot/tag"></script>
+    <script src="item.tag" type="riot/tag"></script>
+    <script src="listings.tag" type="riot/tag"></script>
+    
     <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
     <script>
       riot.mount('*')

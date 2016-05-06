@@ -3,6 +3,20 @@
     	</item>
     	
 <script>
+
+	var self = this
+	
+	var listingsRef = new Firebase("dibz.firebaseio.com/listing")
+	
+	listingsRef.on("value", function (snap) {
+		console.log(snap.val())
+		self.items.push(snap.val())
+		self.update()
+		//self.items = Object.values(snap.val())
+		//{ listing1: {...},
+		//  listing2: {...}, ... }
+	})
+	
   	this.items = [{
   		itemname:"LEI",
   		itemtag: "lei", 
