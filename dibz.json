@@ -8,20 +8,17 @@
 		"password": "kafkes",
 		"name": "Alaina Kafkes",
 		"contact": "7084768695",
-		"listings": {
-			"key1": 1,
-			"key2": 2,
-			"key3": 3,
-			"key4": 4
-		}
+		"numlistings": 3
 	},
 	
-	"listing": {
+	"listings": {
+	
+	"listing1": {
 		"id": 1,
 		"itemname": "Cookie Package",
 		"description": "Went home for Easter and my family gave me this, but I can't have gluten. :(",
 		"price": 0,
-		"bidtime": "24 hours",
+		"bidtime": "24",
 		"payment": "N/A",
 		"pickup": "The Garage",
 		"other": "NUvention demo only.",
@@ -43,6 +40,48 @@
 			
 		}
 		
+	},
+	
+	"listing2": {
+		"id": 2,
+		"itemname": "Bike",
+		"description": "Never learned to ride, used twice.",
+		"price": 0,
+		"bidtime": "48",
+		"payment": "N/A",
+		"pickup": "1715 Chicago Ave #601S",
+		"other": "Buzz #073 to take a look.",
+		"itemdibz": {
+			"dib1": {
+				"buyername": "Rohan Verma",
+				"buyercontact": "rohanv77@gmail.com"
+			}
+		}	
+	},
+	
+	"listing3": {
+		"id": 1,
+		"itemname": "Apple Headphones",
+		"description": "Expensive at the Apple Store, but cheap if you buy from me!",
+		"price": 0,
+		"bidtime": "24",
+		"payment": "N/A",
+		"pickup": "Willard Residential College",
+		"other": "",
+		"itemdibz": {
+			"dib1": {
+				"buyername": "Haley De Boom",
+				"buyercontact": "hd@u.northwestern.edu"
+			},
+			
+			"dib2": {
+				"buyername": "John Smith",
+				"buyercontact": "johnsmith@yahoo.com"
+			}
+			
+		}
+		
 	}
 	
+	}
 }

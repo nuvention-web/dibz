@@ -77,15 +77,15 @@
     <script src="js/bootstrap.min.js"></script>
     
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	
+	<script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
 
-
-    <script src="item.tag" type="riot/tag"></script>
-    <script src="listings.tag" type="riot/tag"></script>
-    <script src="managepage.tag" type="riot/tag"></script>
-
-    <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
-    <script>
-      riot.mount('*')
+    <script type="riot/tag" src="item.tag"></script>
+    <script type="riot/tag" src="listings.tag"></script>
+    <script type="riot/tag" src="managepage.tag"></script>
+   
+    <script type = "text/javascript">
+		riot.mount('*');
     </script>
 
 </body>

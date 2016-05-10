@@ -222,7 +222,7 @@
     <script>
     	var myFirebaseRef = new Firebase("https://dibz.firebaseio.com");
     	
-    	var listingRef = myFirebaseRef.child('listing')
+    	var listingRef = myFirebaseRef.child('listing2')
     	
     	listingRef.on('value', function (snap) {
     		console.log(snap.val())
