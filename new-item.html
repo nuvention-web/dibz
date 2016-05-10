@@ -26,18 +26,17 @@
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     
     <script type = "text/javascript">    	
-    	$(document).ready(function() {
-    		$('#add').click(function() {
+    	//$(document).ready(function() {
+    		//$('#add').click(function() {
+    		function addToDB() {
     			var listingsRef = new Firebase("dibz.firebaseio.com/listings");
         		var numRef = new Firebase("dibz.firebaseio.com/user/numlistings");
         		var numlistings = 0;
         		
-        		numRef.on("value", function(snap) {
-        			numlistings += snap.val();
+        		numRef.once("value", function(snap) {
+        			numlistings = snap.val();
         			console.log(numlistings);
-        			numlistings = numlistings + 1; // will this update in global scope?
-        		})
-        		        		
+        		
         		var newlistingname = "listing" + numlistings.toString();
         		var newListingRef = new Firebase("dibz.firebaseio.com/listings/" + newlistingname);
         		
@@ -64,12 +63,20 @@
 					payment: pay,
 					pickup: pick,
 					price: price
+        		}, function () {
+        			numRef.set(numlistings + 1, function () {
+        				window.location.href = '/manage.html'
+        			});
+        		});
+        		
         		});
         		
         		// need to reset numlistings
         		// need to send back to manage.html
-    		});
-    	})
+        		
+        		}
+    		//});
+    	//})
     </script>
 
 
@@ -173,7 +180,7 @@
                 </div>
             </fieldset>
             <!-- <input type="submit"> -->
-            <button type="button" class="btn btn-success btn-lg" id = "add" data-toggle="modal" data-target="#myModal">Add Item
+            <button type="button" class="btn btn-success btn-lg" id = "add" onclick="addToDB();" data-toggle="modal" data-target="#myModal">Add Item
             </button>
             
             <br>

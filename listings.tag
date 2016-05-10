@@ -18,7 +18,7 @@
 		})
 	})
 	
-	self.items = [{}]
+	self.items = []
 
 /* Other attempted means of populating listings page that were less efficient */
 

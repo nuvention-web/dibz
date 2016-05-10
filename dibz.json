@@ -13,8 +13,8 @@
 	
 	"listings": {
 	
-	"listing1": {
-		"id": 1,
+	"listing0": {
+		"id": 0,
 		"itemname": "Cookie Package",
 		"description": "Went home for Easter and my family gave me this, but I can't have gluten. :(",
 		"price": 0,
@@ -42,8 +42,8 @@
 		
 	},
 	
-	"listing2": {
-		"id": 2,
+	"listing1": {
+		"id": 1,
 		"itemname": "Bike",
 		"description": "Never learned to ride, used twice.",
 		"price": 0,
@@ -59,8 +59,8 @@
 		}	
 	},
 	
-	"listing3": {
-		"id": 1,
+	"listing2": {
+		"id": 2,
 		"itemname": "Apple Headphones",
 		"description": "Expensive at the Apple Store, but cheap if you buy from me!",
 		"price": 0,
