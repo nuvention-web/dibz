@@ -25,58 +25,44 @@
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     
-    <script type = "text/javascript">    	
-    	//$(document).ready(function() {
-    		//$('#add').click(function() {
+    <script type = "text/javascript">
     		function addToDB() {
-    			var listingsRef = new Firebase("dibz.firebaseio.com/listings");
-        		var numRef = new Firebase("dibz.firebaseio.com/user/numlistings");
+    			var listingsRef = new Firebase("https://dibz.firebaseio.com/account0/listings");
+        		var numRef = new Firebase("dibz.firebaseio.com/account0/numlistings");
         		var numlistings = 0;
         		
         		numRef.once("value", function(snap) {
         			numlistings = snap.val();
         			console.log(numlistings);
         		
-        		var newlistingname = "listing" + numlistings.toString();
-        		var newListingRef = new Firebase("dibz.firebaseio.com/listings/" + newlistingname);
+        			var newlistingname = "listing" + numlistings.toString();
+        			var newListingRef = new Firebase("dibz.firebaseio.com/account0/listings/" + newlistingname);
         		
-        		var bid = document.getElementById("item-bid").value;
-        		var describe = document.getElementById("item-description").value;
-        		var name = document.getElementById("item-title").value;
-        		// var other = document.getElementById("").value;
-        		var pay = document.getElementById("item-payment").value;
-        		var pick = document.getElementById("item-pickup").value;
-        		var price = document.getElementById("item-price").value;
+        			var bid = document.getElementById("item-bid").value;
+        			var describe = document.getElementById("item-description").value;
+        			var name = document.getElementById("item-title").value;
+        			// var other = document.getElementById("").value;
+        			var pay = document.getElementById("item-payment").value;
+        			var pick = document.getElementById("item-pickup").value;
+        			var price = document.getElementById("item-price").value;
         		
-        		newListingRef.set({
-        			 bidtime: bid,
-        			 description: describe,
-        			 id: numlistings,
-        			 itemdibz: {
-        			 	dib1: {
-							buyername: "Michael Marasco",
-							buyercontact: "marasco@gmail.com"
-						}
-					},
-					itemname: name,
-					other: "",
-					payment: pay,
-					pickup: pick,
-					price: price
-        		}, function () {
-        			numRef.set(numlistings + 1, function () {
+        			newListingRef.set({
+        				bidtime: bid,
+        				description: describe,
+        				id: numlistings,
+        				itemdibz: "",
+						itemname: name,
+						other: "",
+						payment: pay,
+						pickup: pick,
+						price: price
+        			}, function () {
+        				numRef.set(numlistings + 1, function () {
         				window.location.href = '/manage.html'
         			});
         		});
-        		
-        		});
-        		
-        		// need to reset numlistings
-        		// need to send back to manage.html
-        		
-        		}
-    		//});
-    	//})
+        	});	
+        }
     </script>
 
 

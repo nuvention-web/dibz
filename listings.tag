@@ -5,7 +5,7 @@
 <script type = "text/javascript">
 
 	var self = this
-	var listingParent = new Firebase("dibz.firebaseio.com/listings")
+	var listingParent = new Firebase("https://dibz.firebaseio.com/account0/listings")
 
 	listingParent.on("value", function (snap) {
 		snap.forEach(function(childSnap) {
