@@ -27,6 +27,40 @@
 
 <body>
 
+    <script type = "text/javascript">
+    		function addUser() {
+    			var FirebaseRef = new Firebase("https://dibz.firebaseio.com/");
+        		var numUsers = new Firebase("dibz.firebaseio.com/numusers");
+        		var numusers = 0;
+        		
+        		numUsers.once("value", function(snap) {
+        			numusers = snap.val();
+        			console.log(numusers);
+        		
+        			var newAccountName = "account" + numusers.toString();
+        			var newAccountRef = new Firebase("dibz.firebaseio.com/" + newAccountName);
+        		
+        			var name = document.getElementById("register_name").value;
+        			var email = document.getElementById("register_email").value;
+        			var password = document.getElementById("register_password").value;
+        			var contact = document.getElementById("register_phone").value;
+        		
+        			newAccountRef.set({
+        				contact: contact,
+        				listings: "",
+        				name: name,
+        				numlistings: 0,
+        				password: password,
+						username: email
+        			}, function () {
+        				numUsers.set(numusers + 1, function () {
+        				window.location.href = '/manage.html'
+        			});
+        		});
+        	});	
+        }
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -154,7 +188,7 @@
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <a href = "manage.html" type="button" class="btn btn-primary btn-lg btn-block">Login</a>
+                                <a type="button" onclick="verifyUser();" class="btn btn-primary btn-lg btn-block">Login</a>
                             </div>
 				    	    <div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
@@ -175,7 +209,7 @@
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Send</button>
                             </div>
                             <div>
                                 <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
@@ -193,12 +227,14 @@
                                 <span id="text-register-msg">Register an account.</span>
                             </div>
 		    				<!--<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>-->
+                            <input id="register_name" class="form-control" type="text" placeholder="First & last name" required>
+                            <input id="register_phone" class="form-control" type="text" placeholder="Phone number (optional)">
                             <input id="register_email" class="form-control" type="text" placeholder="Email address" required>
                             <input id="register_password" class="form-control" type="password" placeholder="Password" required>
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                                <button type="button" onclick="addUser();" class="btn btn-primary btn-lg btn-block">Register</button>
                             </div>
                             <div>
                                 <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
@@ -218,16 +254,6 @@
 
     <!-- Firebase -->
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-    
-    <script>
-    	var myFirebaseRef = new Firebase("https://dibz.firebaseio.com");
-    	
-    	var listingRef = myFirebaseRef.child('listing')
-    	
-    	listing.on('value', function (snap) {
-    		console.log(snap.val())
-    	})
-    </script>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -238,7 +264,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     
-    <script src="sample.tag" type="riot/tag"></script>
+    <script src="item.tag" type="riot/tag"></script>
+    <script src="listings.tag" type="riot/tag"></script>
+    
     <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
     <script>
       riot.mount('*')

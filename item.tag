@@ -1,6 +1,6 @@
 <item>
 <div class="col-md-4 portfolio-item">
-        <img class="img-responsive" src="{ image }.jpg">
+        <!--<img class="img-responsive" src="{ image }.jpg">--> <!-- filestack -->
         <h3>{ itemname }</h3>
         <h4><p>${ price }</p></h4>
         <p>Accepting dibz for { bidtime } hours</p>
@@ -9,4 +9,3 @@
         <p>{ description }</p>
 </div>
 </item>
-

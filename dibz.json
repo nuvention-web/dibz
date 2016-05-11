@@ -1,48 +1,25 @@
 {
-	"id": {
-		"data": 123
-	},
-	
-	"user": {
+	"numusers": 1,
+	"account0": {
 		"username": "alainakafkes@gmail.com",
 		"password": "kafkes",
 		"name": "Alaina Kafkes",
 		"contact": "7084768695",
+		"numlistings": 1,
+	
 		"listings": {
-			"key1": 1,
-			"key2": 2,
-			"key3": 3,
-			"key4": 4
-		}
-	},
 	
-	"listing": {
-		"id": 1,
-		"itemname": "Cookie Package",
-		"description": "Went home for Easter and my family gave me this, but I can't have gluten. :(",
-		"price": 0,
-		"bidtime": "24 hours",
-		"payment": "N/A",
-		"pickup": "The Garage",
-		"other": "NUvention demo only.",
-		"itemdibz": {
-			"dib1": {
-				"buyername": "Michael Marasco",
-				"buyercontact": "marasco@gmail.com"
-			},
-			
-			"dib2": {
-				"buyername": "Niki Patel",
-				"buyercontact": "nikitapatel2017@u.northwestern.edu"
-			},
-			
-			"dib3": {
-				"buyername": "Haley De Boom",
-				"buyercontact": "hd@u.northwestern.edu"
+			"listing0": {
+				"id": 0,
+				"itemname": "Cookie Package",
+				"description": "Went home for Easter and my family gave me this, but I can't have gluten. :(",
+				"price": 0,
+				"bidtime": "24",
+				"payment": "N/A",
+				"pickup": "The Garage",
+				"other": "NUvention demo only.",
+				"itemdibz": ""
 			}
-			
 		}
-		
 	}
-	
 }
