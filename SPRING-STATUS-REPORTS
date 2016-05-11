@@ -1,0 +1,17 @@
+Dibz Spring Quarter Status Reports
+
+We apologize in advance for not doing pull requests for weeks 1-3 this quarter, but we wanted to update the TAs and staff with our
+progress thus far. As of week 3, we had:
+
++ Created a new logo
++ Changed Dibz into a seller dashboard/item listing hub
++ Performed market research and interviews broader than the Northwestern community
++ Changed the Dibz UI (HTML/CSS/JS/JQuery)
++ Validated and stored usernames, passwords, and email addresses
+
+In the upcoming weeks, we want to:
+
++ Personalize Dibz to each Dibz account (i.e. once user is logged in, give them access to features)
++ Incorporate Bitly API for link generation and shortening services
++ Make image upload into database functional
++ Generalize web pages so they work for more than ~30-50 items per seller
