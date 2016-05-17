@@ -22,43 +22,77 @@
     <!-- Modal CSS -->
     <link href="css/modal.css" rel="stylesheet">
     <script src="js/dibz.js"> </script>
+    
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 
 </head>
 
 <body>
-
+    
     <script type = "text/javascript">
-    		function addUser() {
-    			var FirebaseRef = new Firebase("https://dibz.firebaseio.com/");
-        		var numUsers = new Firebase("dibz.firebaseio.com/numusers");
-        		var numusers = 0;
-        		
-        		numUsers.once("value", function(snap) {
-        			numusers = snap.val();
-        			console.log(numusers);
-        		
-        			var newAccountName = "account" + numusers.toString();
-        			var newAccountRef = new Firebase("dibz.firebaseio.com/" + newAccountName);
-        		
-        			var name = document.getElementById("register_name").value;
-        			var email = document.getElementById("register_email").value;
-        			var password = document.getElementById("register_password").value;
-        			var contact = document.getElementById("register_phone").value;
-        		
-        			newAccountRef.set({
-        				contact: contact,
-        				listings: "",
-        				name: name,
-        				numlistings: 0,
-        				password: password,
-						username: email
-        			}, function () {
-        				numUsers.set(numusers + 1, function () {
-        				window.location.href = '/manage.html'
-        			});
-        		});
-        	});	
-        }
+    	function addUser() {
+    		var ref = new Firebase("https://dibz.firebaseio.com");
+    	
+        	var email = document.getElementById("register_email").value;
+        	var password = document.getElementById("register_password").value;
+		
+			ref.createUser({
+  				email : email,
+  				password : password
+			}, function(error, userData) {
+  				if (error) {
+    				console.log("Error creating user:", error);
+  				} else {
+    				console.log("Successfully created user account with uid:", userData.uid);
+  				}
+			});
+		}
+    </script>
+    
+    <script type = "text/javascript">
+    		function verifyUser() {
+			var ref = new Firebase("https://dibz.firebaseio.com");
+			
+			var email = document.getElementById("login_username").value;
+        	var password = document.getElementById("login_password").value;
+			
+			ref.authWithPassword({
+  				email : email,
+  				password : password
+			}, function(error, authData) {
+  			if (error) {
+    			console.log("Login Failed!", error);
+  			} else {
+    			console.log("Authenticated successfully with payload:", authData);
+  			}, {
+  			remember: "sessionOnly" }
+			});
+		}
+    </script>
+    
+    <script type = "text/javascript">
+		function sendEmail() {
+			var ref = new Firebase("https://dibz.firebaseio.com");
+			
+			var email = document.getElementById("lost_email").value;
+			
+			ref.resetPassword({
+  				email: email
+			}, function(error) {
+  			if (error) {
+    			switch (error.code) {
+      				case "INVALID_USER":
+        				console.log("The specified user account does not exist.");
+        				break;
+      				default:
+        				console.log("Error resetting password:", error);
+    				}
+  			} else {
+    			console.log("Password reset email sent successfully!");
+  			}
+			});
+		}
     </script>
 
     <!-- Navigation -->
@@ -188,7 +222,7 @@
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <a type="button" onclick="verifyUser();" class="btn btn-primary btn-lg btn-block">Login</a>
+                                <a type="button" onclick="javascript:verifyUser();" class="btn btn-primary btn-lg btn-block">Login</a>
                             </div>
 				    	    <div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
@@ -209,7 +243,7 @@
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Send</button>
+                                <button type="button" onclick="javascript:sendEmail();" class="btn btn-primary btn-lg btn-block">Send</button>
                             </div>
                             <div>
                                 <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
@@ -227,14 +261,12 @@
                                 <span id="text-register-msg">Register an account.</span>
                             </div>
 		    				<!--<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>-->
-                            <input id="register_name" class="form-control" type="text" placeholder="First & last name" required>
-                            <input id="register_phone" class="form-control" type="text" placeholder="Phone number (optional)">
                             <input id="register_email" class="form-control" type="text" placeholder="Email address" required>
                             <input id="register_password" class="form-control" type="password" placeholder="Password" required>
             			</div>
 		    		    <div class="modal-footer">
                             <div>
-                                <button type="button" onclick="addUser();" class="btn btn-primary btn-lg btn-block">Register</button>
+                                <button type="button" onclick="javascript:addUser();" class="btn btn-primary btn-lg btn-block">Register</button>
                             </div>
                             <div>
                                 <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
@@ -251,9 +283,6 @@
 		</div>
 	</div>
     <!-- END # MODAL LOGIN -->
-
-    <!-- Firebase -->
-    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
