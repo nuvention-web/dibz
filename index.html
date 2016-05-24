@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
     <title>Dibz</title>
@@ -18,14 +18,61 @@
 
     <!-- Custom CSS -->
     <link href="css/3-col-portfolio.css" rel="stylesheet">
-    
+
     <!-- Modal CSS -->
     <link href="css/modal.css" rel="stylesheet">
     <script src="js/dibz.js"> </script>
 
+    <!-- Firebase Login -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.css" />
+    <script>
+    // Firebase config.
+      var config = {
+        'authDomain': '<your-firebase-project-domain>.firebaseapp.com',
+        'apiKey': '<your-API-key>',
+      };
+
+      // FirebaseUI config.
+      var uiConfig = {
+        // Query parameter name for mode.
+        'queryParameterForWidgetMode': 'mode',
+        // Query parameter name for sign in success url.
+        'queryParameterForSignInSuccessUrl': 'signInSuccessUrl',
+        'signInSuccessUrl': '<url-to-redirect-to-on-success>',
+        'signInOptions': [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        'tosUrl': '<your-tos-url>',
+        'callbacks': {
+          'signInSuccess': function(currentUser, credential, redirectUrl) {
+            // Do something.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+          }
+        }
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var app = firebase.initializeApp(config);
+      var auth = app.auth();
+      var ui = new firebaseui.auth.AuthUI(auth);
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <link type="text/css" rel="stylesheet" href="firebase-ui-auth.css" />
+
 </head>
 
 <body>
+    <div id="firebaseui-auth-container"></div>
 
     <main></main>
 
@@ -34,13 +81,13 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-    
+
     <!-- Modal -->
     <script src="js/modal.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    
+
     <script src="main.tag" type="riot/tag"></script>
     <script src="navigation.tag" type="riot/tag"></script>
     <script src="login.tag" type="riot/tag"></script>
@@ -54,7 +101,7 @@
     <script src="itemlistingdib.tag" type="riot/tag"></script>
     <script src="diblist.tag" type="riot/tag"></script>
 
-    
+
     <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
     <script>
       riot.mount('*')
