@@ -2,7 +2,7 @@
 <div class="col-md-4 portfolio-item">
         <!--<img class="img-responsive" src="{ image }.jpg">--> <!-- filestack -->
         <h3>{ itemname }</h3>
-        <h4>${ price } <small>Accepting dibz till { bidtime }</small></h4>
+        <h4>${ price } <small>Accepting dibz until { bidtime }</small></h4>
         <p><b>Payment:</b> { payment }</p>
         <p><b>Pickup:</b> { pickup }</p>
         <p><b>Description:</b> { description }</p>
@@ -27,7 +27,7 @@
       return function () {
         riot.route('/view-item/' + itemname + '/' + id)
       }
-    } 
+    }
 
  </script>
 

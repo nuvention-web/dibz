@@ -39,11 +39,11 @@
       }
       // FirebaseUI config.
       var uiConfig = {
-        // Query parameter name for mode.
+        // Query parameter name for mode
         'queryParameterForWidgetMode': 'mode',
         // Query parameter name for sign in success url.
         'queryParameterForSignInSuccessUrl': 'signInSuccessUrl',
-        'signInSuccessUrl': 'https://www.google.com/',
+        'signInSuccessUrl': '/',
         'signInOptions': [
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -57,7 +57,8 @@
             // Return type determines whether we continue the redirect automatically
             // or whether we leave that to developer to handle.
             // redirectUrl == https://dibz-8406f.firebaseapp.com/__/auth/handler
-            return true;
+            console.log(currentUser)
+            return false
           }
         }
       };
@@ -65,8 +66,6 @@
       var app = firebase.initializeApp(config)
       var auth = app.auth();
       var ui = new firebaseui.auth.AuthUI(auth);
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
     </script>
 </head>
 

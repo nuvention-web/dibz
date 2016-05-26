@@ -24,6 +24,13 @@
                           <input id="item-description" name="item-description" type="text" placeholder="Keep it brief." class="form-control input-md" required>
                       </div>
                   </div>
+                  <!-- File Input -->
+                  <div class="form-group">
+                      <label class="col-md-4 control-label" for="item-file">Image</label>
+                      <div class="col-md-4">
+                          <input id="item-file" name="item-file" type="file" class="form-control input-md" required>
+                      </div>
+                  </div>
                   <!-- Text input-->
                   <div class="form-group">
                       <label class="col-md-4 control-label" for="item-price">Price</label>
@@ -38,7 +45,7 @@
                   <div class="form-group">
                       <label class="col-md-4 control-label" for="item-bid">Bidding Period</label>
                       <div class="col-md-4">
-                          <input id="item-bid" name="item-bid" type="number" placeholder="Date when bidding will close." class="form-control input-md" required>
+                          <input id="item-bid" name="item-bid" type="date" placeholder="Date when bidding will close." class="form-control input-md" required>
                       </div>
                   </div>
                   <!-- Text input-->
@@ -61,9 +68,9 @@
               <!-- Add to Firebase -->
               <script type = "text/javascript">
                 this.addToDB = function addToDB() {
-                  var numlistings = 0;
-                  firebase.database().ref('/numlistings').once("value", function(snap) {
-                    numlistings = snap.val();
+                  var numitems = 0;
+                  firebase.database().ref('/listing1/numitems').once("value", function(snap) {
+                    numitems = snap.val();
                   });
 
                   var bid = document.getElementById("item-bid").value;
@@ -73,17 +80,17 @@
                   var pick = document.getElementById("item-pickup").value;
                   var price = document.getElementById("item-price").value;
 
-                  firebase.database().ref('listings/' + numlistings.toString()).set({
+                  firebase.database().ref('/listing1/item' + numitems.toString() + '/').set({
                     bidtime: bid,
                     description: describe,
-                    id: numlistings,
+                    id: numitems,
                     itemdibz: "",
                     itemname: name,
                     payment: pay,
                     pickup: pick,
                     price: price
                     }, function () {
-                      firebase.database().ref('/numlistings').set(numlistings + 1, function () {
+                      firebase.database().ref('/listing1/numitems').set(numitems + 1, function () {
                       window.location.href = '/#/manage'
                     });
                   });
@@ -97,9 +104,8 @@
               <br>
           </form>
           <br>
-          <div id="myModal" class="modal fade" role="dialog">
+          <!-- <div id="myModal" class="modal fade" role="dialog">
               <div class="modal-dialog">
-                  <!-- Modal content-->
                   <div class="modal-content">
                       <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -113,7 +119,7 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
 
 
         <script src="js/jquery.js"></script>
