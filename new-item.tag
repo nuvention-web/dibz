@@ -24,6 +24,7 @@
                           <input id="item-description" name="item-description" type="text" placeholder="Keep it brief." class="form-control input-md" required>
                       </div>
                   </div>
+
                   <!-- File Input -->
                   <div class="form-group">
                       <label class="col-md-4 control-label" for="item-file">Image</label>
@@ -31,6 +32,33 @@
                           <input id="item-file" name="item-file" type="file" class="form-control input-md" required>
                       </div>
                   </div>
+
+                  <!-- File Storage -->
+                  <script>
+                    function upload() {
+                      var storageRef = firebase.storage().ref();
+                      var file = document.getElementById("item-file").files[0];
+                      var fileName = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                        return v.toString(16);
+                      });
+                      console.log(fileName)
+                      var fileRef = storageRef.child(fileName);
+                      var pathRef = storageRef.child('images/'+fileName);
+                      var fileExtension = fileName.substr(fileName.lastIndexOf('.')+1);
+                      var uploadTask = storageRef.child('images/' + fileName + fileExtension).put(file);
+                      uploadTask.on('state_changed', function(snapshot) {
+                        console.log('state_changed');
+                      }, function(error) {
+                        console.log('error');
+                      }, function() {
+                        downloadURL = uploadTask.snapshot.downloadURL.toString();
+                        // how do I add this to the database though?
+                      });
+                      return (fileName + fileExtension);
+                    }
+                  </script>
+
                   <!-- Text input-->
                   <div class="form-group">
                       <label class="col-md-4 control-label" for="item-price">Price</label>
@@ -68,6 +96,9 @@
               <!-- Add to Firebase -->
               <script type = "text/javascript">
                 this.addToDB = function addToDB() {
+                  var downloadURLcopy = upload();
+                  // should run upload & give path
+
                   var numitems = 0;
                   firebase.database().ref('/listing1/numitems').once("value", function(snap) {
                     numitems = snap.val();
@@ -76,6 +107,7 @@
                   var bid = document.getElementById("item-bid").value;
                   var describe = document.getElementById("item-description").value;
                   var name = document.getElementById("item-title").value;
+                  var path = downloadURLcopy;
                   var pay = document.getElementById("item-payment").value;
                   var pick = document.getElementById("item-pickup").value;
                   var price = document.getElementById("item-price").value;
@@ -86,6 +118,7 @@
                     id: numitems,
                     itemdibz: "",
                     itemname: name,
+                    path: path,
                     payment: pay,
                     pickup: pick,
                     price: price
