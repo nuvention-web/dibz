@@ -12,7 +12,9 @@
 
 
         <div>
+
         	<listings></listings>
+
     	</div>
 
     </div>

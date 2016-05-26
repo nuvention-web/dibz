@@ -1,20 +1,19 @@
 <listings>
-  <item each="{ items }" >
-  </item>
+  <item each="{ items }" ></item>
 
   <script type = "text/javascript">
-  	var self = this
-  	firebase.database().ref('listing' + firebase.auth().currentUser.uid + '/').on("value", function (snap) {
-      console.log('you got here')
-      var number = 0;
-  		snap.forEach(function(childSnap) {
-  			console.log(childSnap.val())
-  			self.items.push(childSnap.val())
-  			self.update()
-        number += 1;
-  		})
-  	})
-  	self.items = []
+    if (firebase.auth().currentUser) {
+      var self = this
+    	firebase.database().ref('/listing' + firebase.auth().currentUser.uid + '/').on("value", function (snap) {
+        console.log('you got here')
+    		snap.forEach(function(childSnap) {
+    			console.log(childSnap.val())
+    			self.items.push(childSnap.val())
+    			//self.update()
+    		})
+    	})
+      self.items = []
+  }
   </script>
 
 </listings>
