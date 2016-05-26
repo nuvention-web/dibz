@@ -10,14 +10,14 @@
 
         </div>
 
-        
+
         <div class="col-md-12">
 
                   <h3>My Dibz</h3>
         </div>
 
 
-        <div class="col-md-6 col-md-offset-3">  	
+        <div class="col-md-6 col-md-offset-3">
 
           <topdib dib="{ dibz[0] }"></topdib>
           <diblist each="{ dibz.slice(1) }"></diblist>
@@ -33,7 +33,7 @@
 
 
       this.update({
-  			itemname:"LEI", 
+  			itemname:"LEI",
         	image:1,
   			highestdib:5,
   			bidtime:0,
@@ -56,7 +56,7 @@
   			buyername:"Haley De Boom",
   			buyercontact:"hd@u.northwestern.edu",
   			buyeroffer:1
-  		}]		
+  		}]
 
 
       this.dibz = this.dibz.sort(
@@ -73,6 +73,5 @@
 
   	</script>
 
-       
 
 </view-item>

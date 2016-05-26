@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,19 +11,21 @@
 
     <title>Dibz</title>
 
-    <!-- Modal CSS -->
-    <link href="css/modal.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet">
     <script src="js/dibz.js"> </script>
 
-    <link href="css/3-col-portfolio.css" rel="stylesheet">
+  </head>
 
-</head>
+  <body>
 
-<body>
-
+    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -33,56 +35,38 @@
                 </button>
                 <a class="navbar-brand" href="index.html"><img src = "logo/Slide1.png" style = "height: 32px; width: 32px"></a>
             </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <!--<li>
+                    <li>
                         <a href="manage.html">Manage</a>
                     </li>
                     <li>
                         <a href="new-item.html">Add</a>
-                    </li>-->
+                    </li>
                     <li>
-                        <a href="profile.html">Diana's Items</a>
+                        <a href="profile.html">Buyer Link</a>
                     </li>
                 </ul>
             </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container -->
     </nav>
 
-    <div class="container">
+    <!-- Page Content -->
+    <managepage></managepage>
 
+    <!-- Footer -->
+    <footer>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">THANK YOU
+                <p>Copyright &copy; Dibz 2016</p>
             </div>
         </div>
+        <!-- /.row -->
+    </footer>
 
-    <!-- Page Content -->
-    <div>
-    	<h3>We at Dibz appreciate your business. Stay tuned for our beta launch!<h3>
-    </div>
-
-    <script src="buyitem.tag" type="riot/tag"></script>
-    <script src="buyer.tag" type="riot/tag"></script>
-    <script src="managepage.tag" type="riot/tag"></script>
-
-    <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
-    <script>
-      riot.mount('*')
-    </script>
-
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--<p>Copyright &copy; Dibz 2016</p>-->
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -91,6 +75,17 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-</body>
+	  <!-- Riot.js -->
+	  <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
+
+    <script type="riot/tag" src="item.tag"></script>
+    <script type="riot/tag" src="listings.tag"></script>
+    <script type="riot/tag" src="managepage.tag"></script>
+
+    <script type = "text/javascript">
+		riot.mount('*');
+    </script>
+
+  </body>
 
 </html>

@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	</head>
+
+	<body>
+
+	<!-- pull listing from database -->
+	<!-- <script>
+		var listingRef = new Firebase("https://dibz.firebaseio.com/");
+
+		function pullData() {
+			listingRef.orderByChild("listing").on("value", function(snapshot) {
+				//console.log(snapshot.val() + "is working")
+				snapshot.forEach(function(childSnapshot) {
+					var data = childSnapshot.val()
+					// and now you do stuff with the data, i.e. throw it into the template!
+					// put that code here
+				}
+			}
+	</script> -->
+
+	<!-- save data into database -->
+	<!-- <script>
+		var listingRef = new Firebase("https://dibz.firebaseio.com/listing");
+
+		listingRef.set({
+			bidtime: "JS here",
+			description: "JS here",
+			dibz: {
+				buyercontact: "JS here",
+				buyerdib: "JS here",
+				buyername: "JS here"
+			}
+			itemname: "JS here",
+			other: "JS here",
+			payment: "JS here",
+			pickup: "JS here",
+			price: "JS here"
+		})
+	</script> -->
+
+	</body>
+</html>

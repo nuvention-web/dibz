@@ -1,0 +1,29 @@
+{
+	"users": {
+		"alainakafkes": {
+			"listing-id": 1
+		},
+		"jordantimmerman": {
+			"listing-id": 2
+		}
+	},
+
+	"listing1": {
+		"numitems": 1,
+		"item0": {
+			"id": 0,
+			"itemname": "Cookie Package",
+			"description": "Went home for Easter and my family gave me this, but I can't have gluten.",
+			"price": 0,
+			"bidtime": "24",
+			"payment": "N/A",
+			"pickup": "The Garage",
+			"other": "NUvention demo only.",
+			"itemdibz": ""
+		}
+	},
+
+	"listing2": {
+		"numitems": 0
+	}
+}
