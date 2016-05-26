@@ -43,7 +43,7 @@
         'queryParameterForWidgetMode': 'mode',
         // Query parameter name for sign in success url.
         'queryParameterForSignInSuccessUrl': 'signInSuccessUrl',
-        'signInSuccessUrl': '/',
+        'signInSuccessUrl': '/#/manage',
         'signInOptions': [
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
           firebase.auth.FacebookAuthProvider.PROVIDER_ID,
@@ -53,15 +53,25 @@
         'tosUrl': 'https://www.reddit.com/',
         'callbacks': {
           'signInSuccess': function(currentUser, credential, redirectUrl) {
-            // Do something.
-            // Return type determines whether we continue the redirect automatically
-            // or whether we leave that to developer to handle.
-            // redirectUrl == https://dibz-8406f.firebaseapp.com/__/auth/handler
-            console.log(currentUser)
-            return false
+            // Let's add the user to the database to start.
+            if (currentUser != null) {
+              var email = currentUser.email
+              console.log(email)
+              var uid = currentUser.uid
+              console.log(uid)
+
+              firebase.database().ref('/users/' + uid + '/').set({ email
+              }, function () {
+                firebase.database().ref('/listing' + uid + '/').set({ "numitems" : 0 });
+                window.location.href = "/#/manage"
+              });
+
+              //document.location.href('/#/manage')
+              return true
+            }
           }
         }
-      };
+      }
 
       var app = firebase.initializeApp(config)
       var auth = app.auth();

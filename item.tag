@@ -10,8 +10,6 @@
     Get Buyer Link
   </a>
   <a class="btn btn-success" role="button" onclick={ gotoitem( itemname, id ) }>View Dibz</a>
-
-
 </div>
 
 <script>

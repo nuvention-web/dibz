@@ -98,9 +98,9 @@
                 this.addToDB = function addToDB() {
                   var downloadURLcopy = upload();
                   // should run upload & give path
-
+                  var currentUserID = firebase.auth().currentUser.uid;
                   var numitems = 0;
-                  firebase.database().ref('/listing1/numitems').once("value", function(snap) {
+                  firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
                     numitems = snap.val();
                   });
 
@@ -112,7 +112,7 @@
                   var pick = document.getElementById("item-pickup").value;
                   var price = document.getElementById("item-price").value;
 
-                  firebase.database().ref('/listing1/item' + numitems.toString() + '/').set({
+                  firebase.database().ref('/listing' + currentUserID + '/item' + numitems.toString() + '/').set({
                     bidtime: bid,
                     description: describe,
                     id: numitems,
@@ -123,7 +123,7 @@
                     pickup: pick,
                     price: price
                     }, function () {
-                      firebase.database().ref('/listing1/numitems').set(numitems + 1, function () {
+                      firebase.database().ref('/listing' + currentUserID + '/numitems/').set(numitems + 1, function () {
                       window.location.href = '/#/manage'
                     });
                   });
