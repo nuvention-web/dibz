@@ -17,7 +17,7 @@
               this.logOut = function logOut() {
                 firebase.auth().signOut().then(function() {
                   console.log("Successful sign out.")
-                  window.location.href = "/index.html"
+                  riot.route('/')
                 }, function(error) {
                   console.log("Unsuccessful signing" + firebase.auth().currentUser.uid + "out.")
                 });

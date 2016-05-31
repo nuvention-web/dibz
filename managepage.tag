@@ -1,13 +1,13 @@
 <manage-page>
 	<script>
-	firebase.auth().onAuthStateChanged(function(user) {
-		if (user) {
-			// allow page to load
-		} else {
-			// No user is signed in.
-			window.location.href = "/"
-		}
-	});
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // allow page to load
+      } else {
+        // No user is signed in.
+        riot.route('/')
+      }
+    });
 	</script>
 
 	<div  class="container">

@@ -1,75 +1,75 @@
 <new-item>
 
   <script type = "text/javascript">
-  firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // eh
-    } else {
-      // No user is signed in.
-      window.location.href = "/"
-    }
-  });
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // eh
+      } else {
+        // No user is signed in.
+        riot.route('/')
+      }
+    });
   </script>
 
   <script type = "text/javascript">
-  // Add to Database Function
-  this.addToDB = function addToDB() {
-    var downloadURLcopy = upload();
-    // should run upload & give path
-    var currentUserID = firebase.auth().currentUser.uid;
-    var numitems = 0;
-    firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
-      numitems = snap.val();
-    });
-
-    var bid = document.getElementById("item-bid").value;
-    var describe = document.getElementById("item-description").value;
-    var name = document.getElementById("item-title").value;
-    var path = downloadURLcopy;
-    var pay = document.getElementById("item-payment").value;
-    var pick = document.getElementById("item-pickup").value;
-    var price = document.getElementById("item-price").value;
-
-    firebase.database().ref('/listing' + currentUserID + '/item' + numitems.toString() + '/').set({
-      bidtime: bid,
-      description: describe,
-      id: numitems,
-      itemdibz: "",
-      itemname: name,
-      path: path,
-      payment: pay,
-      pickup: pick,
-      price: price
-      }, function () {
-        firebase.database().ref('/listing' + currentUserID + '/numitems/').set(numitems + 1, function () {
-        window.location.href = '/#/manage'
+    // Add to Database Function
+    this.addToDB = function addToDB() {
+      var downloadURLcopy = upload();
+      // should run upload & give path
+      var currentUserID = firebase.auth().currentUser.uid;
+      var numitems = 0;
+      firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
+        numitems = snap.val();
       });
-    });
-  }
 
-  // Image File Upload Function
-  function upload() {
-    var storageRef = firebase.storage().ref();
-    var file = document.getElementById("item-file").files[0];
-    var fileName = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-      return v.toString(16);
-    });
-    console.log(fileName)
-    var fileRef = storageRef.child(fileName);
-    var pathRef = storageRef.child('images/'+fileName);
-    var fileExtension = fileName.substr(fileName.lastIndexOf('.')+1);
-    var uploadTask = storageRef.child('images/' + fileName + fileExtension).put(file);
-    uploadTask.on('state_changed', function(snapshot) {
-      console.log('state_changed');
-    }, function(error) {
-      console.log('error');
-    }, function() {
-      downloadURL = uploadTask.snapshot.downloadURL.toString();
-      // how do I add this to the database though?
-    });
-    return (fileName + fileExtension);
-  }
+      var bid = document.getElementById("item-bid").value;
+      var describe = document.getElementById("item-description").value;
+      var name = document.getElementById("item-title").value;
+      var path = downloadURLcopy;
+      var pay = document.getElementById("item-payment").value;
+      var pick = document.getElementById("item-pickup").value;
+      var price = document.getElementById("item-price").value;
+
+      firebase.database().ref('/listing' + currentUserID + '/item' + numitems.toString() + '/').set({
+        bidtime: bid,
+        description: describe,
+        id: numitems,
+        itemdibz: "",
+        itemname: name,
+        path: path,
+        payment: pay,
+        pickup: pick,
+        price: price
+        }, function () {
+          firebase.database().ref('/listing' + currentUserID + '/numitems/').set(numitems + 1, function () {
+          riot.route('/manage')
+        });
+      });
+    }
+
+    // Image File Upload Function
+    function upload() {
+      var storageRef = firebase.storage().ref();
+      var file = document.getElementById("item-file").files[0];
+      var fileName = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+      console.log(fileName)
+      var fileRef = storageRef.child(fileName);
+      var pathRef = storageRef.child('images/'+fileName);
+      var fileExtension = fileName.substr(fileName.lastIndexOf('.')+1);
+      var uploadTask = storageRef.child('images/' + fileName + fileExtension).put(file);
+      uploadTask.on('state_changed', function(snapshot) {
+        console.log('state_changed');
+      }, function(error) {
+        console.log('error');
+      }, function() {
+        downloadURL = uploadTask.snapshot.downloadURL.toString();
+        // how do I add this to the database though?
+      });
+      return (fileName + fileExtension);
+    }
   </script>
 
   <div class="container">

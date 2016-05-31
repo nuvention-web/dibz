@@ -63,10 +63,9 @@
               firebase.database().ref('/users/' + uid + '/').set({ email
               }, function () {
                 firebase.database().ref('/listing' + uid + '/').set({ "numitems" : 0 });
-                window.location.href = "/#/manage"
+                riot.route('/manage')
               });
 
-              //document.location.href('/#/manage')
               return true
             }
           }
@@ -76,6 +75,10 @@
       var app = firebase.initializeApp(config)
       var auth = app.auth();
       var ui = new firebaseui.auth.AuthUI(auth);
+
+      auth.onAuthStateChanged(function (user) {
+         riot.route('/manage')
+      })
     </script>
 
 </head>
