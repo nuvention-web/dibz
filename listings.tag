@@ -2,18 +2,20 @@
   <item each="{ items }" ></item>
 
   <script type = "text/javascript">
-    if (firebase.auth().currentUser) {
-      var self = this
-    	firebase.database().ref('/listing' + firebase.auth().currentUser.uid + '/').on("value", function (snap) {
-        console.log('you got here')
-    		snap.forEach(function(childSnap) {
-    			console.log(childSnap.val())
-    			self.items.push(childSnap.val())
-    			//self.update()
-    		})
-    	})
-      self.items = []
-  }
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        var self = this
+        self.items = []
+        firebase.database().ref('/listing' + user + '/').on("value", function (snap) {
+          console.log('you got here')
+          snap.forEach(function(childSnap) {
+            console.log(childSnap.val())
+            self.items.push(childSnap.val())
+            //self.update()
+          })
+        })
+      }
+    }
   </script>
 
 </listings>
