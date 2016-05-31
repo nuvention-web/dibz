@@ -2,7 +2,9 @@
   <item each="{ items }" ></item>
 
   <script type = "text/javascript">
-    if (firebase.auth().currentUser) {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // allow page to load
       var self = this
     	firebase.database().ref('/listing' + firebase.auth().currentUser.uid + '/').on("value", function (snap) {
         console.log('you got here')
@@ -13,7 +15,11 @@
     		})
     	})
       self.items = []
-  }
+    } else {
+      // No user is signed in.
+      window.location.href = "/"
+    }
+  });
   </script>
 
 </listings>

@@ -1,4 +1,14 @@
 <manage-page>
+	<script>
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			// allow page to load
+		} else {
+			// No user is signed in.
+			window.location.href = "/"
+		}
+	});
+	</script>
 
 	<div  class="container">
 
