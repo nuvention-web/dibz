@@ -17,10 +17,6 @@
       var downloadURLcopy = upload();
       // should run upload & give path
       var currentUserID = firebase.auth().currentUser.uid;
-      var numitems = 0;
-      firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
-        numitems = snap.val();
-      });
 
       var bid = document.getElementById("item-bid").value;
       var describe = document.getElementById("item-description").value;
@@ -30,21 +26,25 @@
       var pick = document.getElementById("item-pickup").value;
       var price = document.getElementById("item-price").value;
 
-      firebase.database().ref('/listing' + currentUserID + '/item' + numitems.toString() + '/').set({
-        bidtime: bid,
-        description: describe,
-        id: numitems,
-        itemdibz: "",
-        itemname: name,
-        path: path,
-        payment: pay,
-        pickup: pick,
-        price: price
-        }, function () {
-          firebase.database().ref('/listing' + currentUserID + '/numitems/').set(numitems + 1, function () {
-          riot.route('/manage')
+      firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
+        var numitems = snap.val();
+
+        firebase.database().ref('/listing' + currentUserID + '/item' + numitems.toString() + '/').set({
+          bidtime: bid,
+          description: describe,
+          id: numitems,
+          itemdibz: "",
+          itemname: name,
+          path: path,
+          payment: pay,
+          pickup: pick,
+          price: price
+          }, function () {
+            firebase.database().ref('/listing' + currentUserID + '/numitems/').set(numitems + 1, function () {
+            riot.route('/manage')
+          });
         });
-      });
+      })
     }
 
     // Image File Upload Function
@@ -56,18 +56,9 @@
         return v.toString(16);
       });
       console.log(fileName)
-      var fileRef = storageRef.child(fileName);
       var pathRef = storageRef.child('images/'+fileName);
       var fileExtension = fileName.substr(fileName.lastIndexOf('.')+1);
       var uploadTask = storageRef.child('images/' + fileName + fileExtension).put(file);
-      uploadTask.on('state_changed', function(snapshot) {
-        console.log('state_changed');
-      }, function(error) {
-        console.log('error');
-      }, function() {
-        downloadURL = uploadTask.snapshot.downloadURL.toString();
-        // how do I add this to the database though?
-      });
       return (fileName + fileExtension);
     }
   </script>

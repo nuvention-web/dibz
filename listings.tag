@@ -4,18 +4,16 @@
   <script type = "text/javascript">
     var self = this
 
+    self.items = []
+
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // allow page to load
-        self.items = []
-
-        firebase.database().ref('/listing' + firebase.auth().currentUser.uid + '/').on("value", function (snap) {
-          console.log('you got here')
-          snap.forEach(function(childSnap) {
-            console.log(childSnap.val())
-            self.items.push(childSnap.val())
-          })
-          self.update()
+        firebase.database().ref('/listing' + user.uid + '/').on('child_added', function (snap) {
+          var value = snap.val()
+          if (value instanceof Object) {
+            self.items.push(snap.val())
+            self.update()
+          }
         })
       } else {
         // No user is signed in.

@@ -6,7 +6,9 @@
             <h3 class="page-header" style = "font-family: 'Noto Sans', sans-serif; text-align: center">
               <img src = "logo/Slide2.png" style = "height: 250px; display: block; margin: 0 auto">
                 Store, share & sell all your items under <b style = "letter-spacing:1px">one link</b>.
-                <div id="firebaseui-auth-container"></div>
+                <div id="firebaseui-auth-container">
+                    You're already logged in! Redirecting now...
+                </div>
             </h3>
 
         </div>
