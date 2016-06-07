@@ -1,9 +1,9 @@
 <diblist>
 	<div class="row col-md-12">
 		<span class="col-xs-8">
-			{ buyername } - ${ buyeroffer | 0}.{ x } 
+			{ dibzname } - ${ dibzoffer | 0}.{ x }
 		 </span>
-		 <a class="btn btn-success col-xs-4" href = "mailto:{buyercontact}">Accept Dibz</a>
+		 <a class="btn btn-success col-xs-4" href = "mailto:{dibzemail}">Accept Dibz</a>
   <br>
   <br>
   <br>
@@ -12,7 +12,7 @@
 
 <script>
   this.x = ""
-  amount = (this.buyeroffer - (this.buyeroffer | 0))*100
+  amount = (this.dibzoffer - (this.dibzoffer | 0))*100
   if (amount < 10) {
     this.x = "0" + amount
   }

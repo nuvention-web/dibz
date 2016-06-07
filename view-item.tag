@@ -20,9 +20,32 @@
         </div>
 
         <div>
-<!--           in itemlistindib.tag
- -->          <topdib dib="{ dibz[0] }"></topdib>
-              <diblist each="{ dibz.slice(1) }"></diblist>
+              <!--<topdib dib="{ dibz[0] }"></topdib> -->
+              <diblist each="{ dibz }"></diblist>
+
+              <script type = "text/javascript">
+                var self = this
+
+                self.dibz = []
+
+                var id = sessionStorage.getItem("sellerItemID")
+
+                firebase.auth().onAuthStateChanged(function (user) {
+                  if (user) {
+                    firebase.database().ref('/listing' + user.uid + '/item' + id + '/itemdibz/').on('child_added', function (snap) {
+                      console.log(snap.val())
+                      var value = snap.val()
+                      if (value instanceof Object) {
+                        self.dibz.push(snap.val())
+                        self.update()
+                      }
+                    })
+                  } else {
+                    // No user is signed in.
+                    riot.route('/')
+                  }
+                });
+              </script>
 
        </div>
 
@@ -36,7 +59,7 @@
         // get the data from firebase and then update the view
       })
 
-  		this.dibz = [{
+  		/* this.dibz = [{
   			buyername:"Niki Patel",
   			buyercontact:"nikitapatel2017@u.northwestern.edu",
   			buyeroffer:2
@@ -50,7 +73,7 @@
   			buyername:"Haley De Boom",
   			buyercontact:"hd@u.northwestern.edu",
   			buyeroffer:1
-  		}]
+  		}] */
 
 
       this.dibz = this.dibz.sort(

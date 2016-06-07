@@ -50,6 +50,7 @@
   this.gotoitem = function (itemname, id) {
     return function () {
       document.getElementById("DibzHere").innerHTML = "Who called dibz on " + itemname + "?";
+      sessionStorage.setItem("sellerItemID", id)
       var imgSrc = document.getElementsByClassName('dibz-item-image')[self.id].src;
       //var imgSrc = document.getElementsByClassName("dibz-item-image").src;
       var nextImg = document.getElementById("placeImgHere")
