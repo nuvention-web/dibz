@@ -7,7 +7,7 @@
 - Now check out listings.tag. The JavaScript here that should be updating the items.tag file is not working... Sometimes I get this error "Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help http://xhr.spec.whatwg.org/"
 
 ### Things Alaina hasn't done yet
-- Check dibz needs to pull correct item information from Firebase
-- Accept dib needs to open email
+- Check dibz needs to pull correct item information from Firebase xx
+- Accept dib needs to open email xx
 - Look at get buyer link soon!
 - Call dibz button needs to work (fix that horrid modal)

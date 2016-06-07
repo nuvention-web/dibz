@@ -6,7 +6,7 @@
   <p><b>Payment:</b> { payment }</p>
   <p><b>Pickup:</b> { pickup }</p>
   <p><b>Description:</b> { description }</p>
-  <a class="btn btn-success" role="button" onclick={ goto( itemname, id ) }>
+  <a class="btn btn-success" role="button" onclick={ goto( itemname, price, payment, pickup, description, id ) }>
     Get Buyer Link
   </a>
   <!-- note: id = itemname breaks if multiple things have the same item name -->
@@ -28,9 +28,16 @@
 
   // FIXME: You should scope the unique id to the user's name not the item's name
   // NOTE: every listing should have its own globally unique id, but verify against firebase
-  this.goto = function (itemname, id) {
+  this.goto = function (itemname, price, bidtime, payment, pickup, description, id) {
     return function () {
-      riot.route('/buy/' + itemname + '/' + id)
+      document.getElementById("BuyerItem").innerHTML = itemname;
+      document.getElementById("BuyerPrice").innerHTML = "Asking for $" + price + ". Payment: " + bidtime + ".";
+      var imgSrc = document.getElementsByClassName('dibz-item-image')[self.id].src;
+      //var imgSrc = document.getElementsByClassName("dibz-item-image").src;
+      var nextImg = document.getElementById("placeImgHere")
+      nextImg.src = imgSrc;
+      document.getElementById("BuyerImage").innerHTML = '<img id = "placeImgHere" class="img-responsive dibz-item-image" style = "max-height: 500px;" src='+ imgSrc + '>'
+      riot.route('/buy')
     }
   }
 

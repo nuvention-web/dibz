@@ -1,17 +1,14 @@
 <buy-item>
 	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
-
 <div class="col-md-4 portfolio-item">
-        <h3>{ itemname }</h3>
-        <h4><p>${ price }</p></h4>
-        <p>Accepting dibz for { bidtime } hours</p>
-        <p>Payment: { payment }</p>
-        <p>Pickup: { pickup }</p>
-        <p>{ description }</p>
-        <a class="btn btn-success" role="button" data-toggle="modal" data-target="#dibz-modal"><h4>Call Dibz!</h4></a>
-        <br>
-        <br>
+	<span id = "BuyerImage"><img id = "placeImgHere" class="img-responsive dibz-item-image" style = "max-height: 500px;" src=""></span>
+  <h3 id = "BuyerItem">{ itemname }</h3>
+  <h4><p id = "BuyerPrice">${ price }</p></h4>
+  <a class="btn btn-success" role="button" data-toggle="modal" data-target="#dibz-modal"><h4>Call Dibz!</h4></a>
+  <br>
+  <br>
+</div>
 
 <!-- BEGIN # MODAL LOGIN -->
 <div class="modal fade" id="dibz-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -42,15 +39,10 @@
 				    		    <input id="login_password" class="form-control" type="text" placeholder="Dibz (offer)" required>
                             </div>
 
-                            <!--<div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Email me a confirmation notice.
-                                </label>
-                            </div>-->
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <a href = "confirm.html" type="button" class="btn btn-primary btn-lg btn-block" id = "dibz">Submit My Dibz!</a>
+                                <a href = "" type="button" class="btn btn-primary btn-lg btn-block" id = "dibz">Submit My Dibz!</a>
                             </div>
 				    	    <!--<div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
@@ -70,8 +62,7 @@
 
 </div>
 
-<script>
-
+<!-- <script>
         this.update({
         itemname:"LEI",
         itemtag: "lei",
@@ -83,7 +74,7 @@
         description:"NUvention Launch only."
         })
 
-</script>
+</script> -->
 
 
 
