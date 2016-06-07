@@ -42,7 +42,7 @@
         		    	</div>
 				        <div class="modal-footer">
                             <div>
-                                <a href = "" type="button" class="btn btn-primary btn-lg btn-block" id = "dibz">Submit My Dibz!</a>
+                                <a type="button" class="btn btn-primary btn-lg btn-block" id = "dibz" onclick = "{DibToDB}">Submit My Dibz!</a>
                             </div>
 				    	    <!--<div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
@@ -62,19 +62,31 @@
 
 </div>
 
-<!-- <script>
-        this.update({
-        itemname:"LEI",
-        itemtag: "lei",
-        image:1,
-        price:0,
-        bidtime:24,
-        payment:"N/A",
-        pickup:"The Garage",
-        description:"NUvention Launch only."
-        })
+<script type = "text/javascript">
+	// Add to Database Function
+	this.DibToDB = function DibToDB() {
+		var currentUserID = sessionStorage.getItem("sellerUserID");
+		var itemID = sessionStorage.getItem("itemID");
 
-</script> -->
+		var buyername = document.getElementById("login_username").value;
+		var buyeremail = document.getElementById("login_email").value;
+		var buyeroffer = document.getElementById("login_password").value;
+
+		firebase.database().ref('/listing' + currentUserID + '/numitems/').once("value", function(snap) {
+			var numitems = snap.val();
+
+			firebase.database().ref('/listing' + currentUserID + '/item' + itemID + '/itemdibz/' + buyername + '/').set({
+				dibzname: buyername,
+				dibzemail: buyeremail,
+				dibzoffer: buyeroffer
+				}, function () {
+					//riot.route('/manage')
+					console.log("success!")
+				});
+			});
+		}
+</script>
+
 
 
 
