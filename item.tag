@@ -22,7 +22,7 @@
   var imgRef = firebase.storage().ref("images/" + self.path);
   imgRef.getDownloadURL().then(function(url) {
     console.log("Image URL: " + url)
-    var image = document.getElementsByClassName('dibz-item-image')[0]
+    var image = document.getElementsByClassName('dibz-item-image')[self.id]
     image.src = url;
   });
 
@@ -37,7 +37,8 @@
   this.gotoitem = function (itemname, id) {
     return function () {
       document.getElementById("DibzHere").innerHTML = "Who called dibz on " + itemname + "?";
-      var imgSrc = document.getElementsByClassName("dibz-item-image").src;
+      var imgSrc = document.getElementsByClassName('dibz-item-image')[self.id].src;
+      //var imgSrc = document.getElementsByClassName("dibz-item-image").src;
       var nextImg = document.getElementById("placeImgHere")
       nextImg.src = imgSrc;
       riot.route('/view-item/' + itemname + '/' + id)

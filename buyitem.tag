@@ -18,15 +18,15 @@
     	<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" align="center">
-					<img id="img_logo" src="logo/Slide1.png">
+					<img id="img_logo" src="logo/Slide1.png" style = "max-height: 200px;">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 					</button>
 				</div>
-                
+
                 <!-- Begin # DIV Form -->
                 <div id="div-forms">
-                
+
                     <!-- Begin # Login Form -->
                     <form id="login-form">
 		                <div class="modal-body">
@@ -59,22 +59,22 @@
 				        </div>
                     </form>
                     <!-- End # Login Form -->
-                    
+
                 </div>
                 <!-- End # DIV Form -->
-                
+
 			</div>
 		</div>
 	</div>
     <!-- END # MODAL LOGIN -->
-    
+
 </div>
 
 <script>
 
         this.update({
         itemname:"LEI",
-        itemtag: "lei", 
+        itemtag: "lei",
         image:1,
         price:0,
         bidtime:24,
@@ -82,10 +82,9 @@
         pickup:"The Garage",
         description:"NUvention Launch only."
         })
-    
+
 </script>
 
 
 
 </buy-item>
-
