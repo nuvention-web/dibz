@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+
+    <title>Dibz</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet">
+
+    <!-- Modal CSS -->
+    <!-- <link href="css/modal.css" rel="stylesheet">
+    <script src="js/dibz.js"> </script> -->
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.css" />
+
+    <script type = "text/javascript">
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDZQatbJVPWFW0ZUNISTwxqNDTf2Ir2OgE",
+        authDomain: "dibz-8406f.firebaseapp.com",
+        databaseURL: "https://dibz-8406f.firebaseio.com",
+        storageBucket: "dibz-8406f.appspot.com",
+      }
+      // FirebaseUI config.
+      var uiConfig = {
+        // Query parameter name for mode
+        'queryParameterForWidgetMode': 'mode',
+        // Query parameter name for sign in success url.
+        'queryParameterForSignInSuccessUrl': 'signInSuccessUrl',
+        'signInSuccessUrl': '/#/manage',
+        'signInOptions': [
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        'tosUrl': 'https://www.reddit.com/',
+        'callbacks': {
+          'signInSuccess': function(currentUser, credential, redirectUrl) {
+            // Let's add the user to the database to start.
+            if (currentUser != null) {
+              var email = currentUser.email
+              console.log(email)
+              var uid = currentUser.uid
+              console.log(uid)
+
+              firebase.database().ref('/users/' + uid + '/').set({ email
+              }, function () {
+                firebase.database().ref('/listing' + uid + '/').set({ "numitems" : 0 });
+                riot.route('/manage')
+              });
+
+              return true
+            }
+          }
+        }
+      }
+
+      var app = firebase.initializeApp(config)
+      var auth = app.auth();
+      var ui = new firebaseui.auth.AuthUI(auth);
+
+      auth.onAuthStateChanged(function (user) {
+         riot.route('/manage')
+      })
+    </script>
+
+</head>
+
+<body>
+
+    <main></main>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Modal -->
+    <script src="js/modal.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="main.tag" type="riot/tag"></script>
+    <script src="navigation.tag" type="riot/tag"></script>
+    <script src="login.tag" type="riot/tag"></script>
+    <script src="managepage.tag" type="riot/tag"></script>
+    <script src="new-item.tag" type="riot/tag"></script>
+    <script src="view-item.tag" type="riot/tag"></script>
+    <script src="item.tag" type="riot/tag"></script>
+    <script src="listings.tag" type="riot/tag"></script>
+    <script src="buyitem.tag" type="riot/tag"></script>
+    <script src="itemlistingitem.tag" type="riot/tag"></script>
+    <script src="itemlistingdib.tag" type="riot/tag"></script>
+    <script src="diblist.tag" type="riot/tag"></script>
+    <script src ="https://cdn.jsdelivr.net/riot/2.3.18/riot+compiler.min.js"></script>
+    <script>
+      riot.mount('*')
+      riot.route.start(true)
+    </script>
+
+</body>
+
+</html>
