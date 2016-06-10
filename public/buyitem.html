@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dibz</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/3-col-portfolio.css" rel="stylesheet">
+    <script src="js/dibz.js">
+    </script>
+</head>
+
+<body>
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="dibz-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img id="img_logo" src="logo/Slide1.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="col-md-4 portfolio-item">
+                    <img class="img-responsive dibz-item-image" src="" style="max-height: 200px;">
+                    <h3>{ itemname }</h3>
+                    <h4>${ price } <small>Accepting dibz until { bidtime }</small></h4>
+                    <p><b>Payment:</b> { payment }</p>
+                    <p><b>Pickup:</b> { pickup }</p>
+                    <p><b>Description:</b> { description }</p>
+                    
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+                    <!-- Begin # Login Form -->
+                    <form id="login-form">
+                        <div class="modal-body">
+                            <div id="div-login-msg">
+                                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-login-msg">Enter your name, email address, and dibz below.</span>
+                            </div>
+                            <br>
+                            <input id="login_username" class="form-control" type="text" placeholder="Name (first and last)" required>
+                            <input id="login_email" class="form-control" type="email" placeholder="Email address" required>
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input id="login_password" class="form-control" type="text" placeholder="Dibz (offer)" required>
+                            </div>
+                            <!--<div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Email me a confirmation notice.
+                                </label>
+                            </div>-->
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <a href="confirm.html" type="button" class="btn btn-primary btn-lg btn-block" id="dibz">Submit My Dibz!</a>
+                            </div>
+                            <!--<div>
+                                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>-->
+                        </div>
+                    </form>
+                    <!-- End # Login Form -->
+                </div>
+                <!-- End # DIV Form -->
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    </div>
+</body>
+
+<script>
+</script>
+</html>

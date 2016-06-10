@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dibz</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/dibz.js"></script>
+    <script src="/js/jquery.js"></script>
+    <link href="/css/3-col-portfolio.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="/logo/Slide1.png" style="height: 32px; width: 32px"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/views/manage">Manage</a>
+                    </li>
+                    <li>
+                        <a href="/views/new-item">Add</a>
+                    </li>
+                    <li>
+                        <a href="/views/profile">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">NEW ITEM
+                </h1>
+            </div>
+        </div>
+        <form class="form-horizontal" method="post">
+            <fieldset>
+                <!-- Form Name -->
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-title">Item Title</label>
+                    <div class="col-md-4">
+                        <input id="item-title" name="item-title" type="text" placeholder="What are you selling?" class="form-control input-md" required>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-description">Description</label>
+                    <div class="col-md-4">
+                        <input id="item-description" name="item-description" type="text" placeholder="Keep it brief." class="form-control input-md" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-description">Image</label>
+                    <div class="col-md-4">
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="fileselect" id="fileselect"></input>
+                            <input type="submit" value="Upload!" name="submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-price">Price</label>
+                    <div class="col-md-4">
+                        <input id="item-price" name="item-price" type="number" placeholder="No need to include the $." class="form-control input-md" required>
+                    </div>
+                </div>
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-bid">Bidding Period</label>
+                    <div class="col-md-4">
+                        <select id="item-bid" name="item-bid" class="form-control" required>
+                            <option value="">24 hours</option>
+                            <option value="">48 hours</option>
+                            <option value="">72 hours</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-payment">Accepted Payment</label>
+                    <div class="col-md-4">
+                        <input id="item-payment" name="item-payment" type="text" placeholder="Cash, Venmo, PayPal, Dogecoin, etc." class="form-control input-md" required>
+                    </div>
+                </div>
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="item-pickup">Pick-Up Instructions</label>
+                    <div class="col-md-4">
+                        <textarea class="form-control" id="item-pickup" name="item-pickup" required>Include any relevant information including street address, times/days for pick-up, contact information, etc.</textarea>
+                    </div>
+                </div>
+            
+            <!-- <input type="submit"> -->
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" onclick="generateAndDisplay();">Add Item
+            </button>
+            </fieldset>
+        </form>
+        <br>
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Item Added!</h4>
+                    </div>
+                    <div class="modal-body" id="bitly-input">
+                        <p> Here is a link to share on whatever website you wish! </p>
+                        <p id="bitly">http://bit.ly/1TbkuhE </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Dibz 2016</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
